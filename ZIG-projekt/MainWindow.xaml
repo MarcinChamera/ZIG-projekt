@@ -1,0 +1,268 @@
+﻿<Window x:Class="ZIG_projekt.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZIG_projekt"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="720" Width="1280"  Background="#272537">
+  <Grid Margin="50">
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="auto"/>
+      <ColumnDefinition Width="auto"/>
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="auto"/>
+      <RowDefinition Height="auto"/>
+      <RowDefinition Height="auto"/>
+    </Grid.RowDefinitions>
+
+    <StackPanel Grid.Row="0" x:Name="PlacesPanel" Width="auto" Visibility="Visible">
+      <Label x:Name="DesignationsLabel" Content="Places" FontSize="24" Width="164" HorizontalAlignment="Left" Foreground="White"/>
+      <ListView x:Name="PlacesList" ItemsSource="{Binding Places}" SelectionMode="Single" SelectionChanged="PlacesList_SelectionChanged"  Width="auto" Height="450">
+        <ListView.View>
+          <GridView AllowsColumnReorder="True">
+            <GridViewColumn Header="Name" Width="202">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock TextWrapping="Wrap" Text="{Binding Name}"/>
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+            <GridViewColumn Header="Description" Width="478">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock TextWrapping="Wrap" Text="{Binding Description}"/>
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+          </GridView>
+        </ListView.View>
+      </ListView>
+    </StackPanel>
+
+    <StackPanel Grid.Row="0" x:Name="BirthsBookPanel" Width="auto" Visibility="Collapsed">
+      <Label x:Name="BirthsBookLabel" Content="Births Book"  FontSize="24" Width="200" HorizontalAlignment="Left" Foreground="White"/>
+      <ListView x:Name="BirthsList" ItemsSource="{Binding BirthsBook}" SelectionMode="Single" SelectionChanged="BirthsList_SelectionChanged"  Width="auto" Height="450">
+        <ListView.View>
+          <GridView AllowsColumnReorder="True">
+            <GridViewColumn Header="First Name" Width="100">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock TextWrapping="Wrap" Text="{Binding  Path=FirstName}"/>
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+            <GridViewColumn Header="Last Name" Width="100">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock TextWrapping="Wrap" Text="{Binding  Path=LastName}"/>
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+            <GridViewColumn Header="Date" Width="100">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock TextWrapping="Wrap" Text="{Binding  Path=Date}"/>
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+            <GridViewColumn Header="Time" Width="100">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock TextWrapping="Wrap" Text="{Binding  Path=Time}"/>
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+            <GridViewColumn Header="Mother's Name" Width="100">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock TextWrapping="Wrap" Text="{Binding  Path=MothersName}"/>
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+            <GridViewColumn Header="Father's Name" Width="100">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock TextWrapping="Wrap" Text="{Binding  Path=FathersName}"/>
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+          </GridView>
+        </ListView.View>
+      </ListView>
+    </StackPanel>
+
+    <StackPanel Grid.Row="0" x:Name="WeddingsBookPanel" Width="auto" Visibility="Collapsed">
+      <Label x:Name="WeddingsBookLabel" Content="Weddings Book"  FontSize="24" Width="200" HorizontalAlignment="Left" Foreground="White"/>
+      <ListView x:Name="WeddingsList" ItemsSource="{Binding WeddingsBook}" SelectionMode="Single" SelectionChanged="WeddingsList_SelectionChanged"  Width="auto" Height="450">
+        <ListView.View>
+          <GridView AllowsColumnReorder="True">
+            <GridViewColumn Header="Name" Width="202">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock TextWrapping="Wrap" Text="{Binding  Path=Name}"/>
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+          </GridView>
+        </ListView.View>
+      </ListView>
+    </StackPanel>
+
+    <StackPanel Grid.Row="0" x:Name="DeathsBookPanel" Width="auto" Visibility="Collapsed">
+      <Label x:Name="DeathsBookLabel" Content="Deaths Book"  FontSize="24" Width="200" HorizontalAlignment="Left" Foreground="White"/>
+      <ListView x:Name="DeathsList" ItemsSource="{Binding DeathsBook}" SelectionMode="Single" SelectionChanged="DeathsList_SelectionChanged"  Width="auto" Height="450">
+        <ListView.View>
+          <GridView AllowsColumnReorder="True">
+            <GridViewColumn Header="Name" Width="202">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock TextWrapping="Wrap" Text="{Binding  Path=Name}"/>
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+          </GridView>
+        </ListView.View>
+      </ListView>
+    </StackPanel>
+
+    <StackPanel Name="AddNewPlacePanel" Visibility="Visible" Width="400" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="50 0">
+      <Label Content="Add new place" FontSize="24" Foreground="White"/>
+
+      <Label Content="Name" FontSize="16" Foreground="White"/>
+      <TextBox Name="PlaceNameBox" Background="#FFFFFF" FontSize="16"/>
+
+      <Label Content="Description" FontSize="16" Foreground="White"/>
+      <TextBox Name="PlaceDescriptionBox" Background="#FFFFFF" FontSize="16"/>
+
+      <Button 
+                x:Name="AddPlaceConfirmButton"
+                Content="Add place" 
+                Width="140" 
+                Height="36" 
+                Visibility="Visible" 
+                Background="MediumSpringGreen"
+                Margin="40"
+                Click="AddPlaceConfirmButton_Click"
+                Foreground="White"
+                />
+    </StackPanel>
+
+    <StackPanel Name="AddNewBirthPanel" Visibility="Collapsed" Width="400" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="50 0">
+      <Label Content="Add new birth event" FontSize="24" Foreground="White"/>
+
+      <Label Content="First Name" FontSize="16" Foreground="White"/>
+      <TextBox Name="BirthFirstNameBox" Background="#FFFFFF" FontSize="16"/>
+
+      <Label Content="Last Name" FontSize="16" Foreground="White"/>
+      <TextBox Name="BirthLastNameBox" Background="#FFFFFF" FontSize="16"/>
+
+      <Button 
+                x:Name="AddBirthConfirmButton"
+                Click="AddBirthConfirmButton_Click"
+                Content="Add birth event" 
+                Width="140" 
+                Height="36" 
+                Visibility="Visible" 
+                Background="MediumSpringGreen"
+                Margin="0 30 0 0"
+                Foreground="White"
+                />
+    </StackPanel>
+
+    <StackPanel Name="AddNewWeddingPanel" Visibility="Collapsed" Width="400" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="50 0">
+      <Label Content="Add new wedding" FontSize="24" Foreground="White"/>
+
+      <Label Content="Name" FontSize="16" Foreground="White"/>
+      <TextBox Name="WeddingNameBox" Background="#FFFFFF" FontSize="16"/>
+
+      <Button 
+                x:Name="AddWeddingConfirmButton"
+                Click="AddWeddingConfirmButton_Click"
+                Content="Add wedding event" 
+                Width="140" 
+                Height="36" 
+                Visibility="Visible" 
+                Background="MediumSpringGreen"
+                Margin="0 30 0 0"
+                Foreground="White"
+                />
+    </StackPanel>
+
+    <StackPanel Name="AddNewDeathPanel" Visibility="Collapsed" Width="400" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="50 0">
+      <Label Content="Add new death" FontSize="24" Foreground="White"/>
+
+      <Label Content="Name" FontSize="16" Foreground="White"/>
+      <TextBox Name="DeathNameBox" Background="#FFFFFF" FontSize="16"/>
+
+      <Button 
+                x:Name="AddDeathConfirmButton"
+                Click="AddDeathConfirmButton_Click"
+                Content="Add death" 
+                Width="140" 
+                Height="36" 
+                Visibility="Visible" 
+                Background="MediumSpringGreen"
+                Margin="0 30 0 0"
+                Foreground="White"
+                />
+    </StackPanel>
+
+    <Grid Grid.Row="2" Margin="0 25" Name="PlacesButtonsGrid">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="auto" />
+        <ColumnDefinition Width="auto" />
+        <ColumnDefinition Width="auto" />
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="auto"/>
+      </Grid.RowDefinitions>
+
+      <Button Visibility="Hidden" Grid.Column="0" x:Name="RemovePlaceButton" Content="Remove place" Click="RemovePlaceButton_Click" Width="142" HorizontalAlignment="Left" Height="36" Background="IndianRed" Foreground="White"/>
+      <Button Visibility="Hidden" Grid.Column="1" x:Name="AddBirthButton" Content="Births Book" Click="AddBirthButton_Click" Width="142" HorizontalAlignment="Right" Height="36" Background="DeepSkyBlue" Foreground="White"/>
+      <Button Visibility="Hidden" Grid.Column="2" x:Name="AddWeddingButton" Content="Weddings Book" Click="AddWeddingButton_Click" Width="142" HorizontalAlignment="Right" Height="36" Margin="25 0 0 0" Background="MediumSpringGreen" Foreground="White"/>
+      <Button Visibility="Hidden" Grid.Column="3" x:Name="AddDeathButton" Content="Deaths Book" Click="AddDeathButton_Click" Width="142" HorizontalAlignment="Right" Height="36" Margin="25 0 0 0" Background="MediumSpringGreen" Foreground="White"/>
+    </Grid>
+
+    <Grid Grid.Row="2" Margin="0 25"  Name="BirthsBookButtonsGrid" Visibility="Collapsed">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="auto" />
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="auto"/>
+      </Grid.RowDefinitions>
+
+      <Button Grid.Column="0" x:Name="BackToPlacesButtonBirthsBook" Click="BackToPlacesButton_Click" Content="Back" Width="142" HorizontalAlignment="Left" Height="36"/>
+      <Button Visibility="Collapsed" Grid.Column="1" x:Name="RemoveBirthButton" Content="Remove birth" Click="RemoveBirthButton_Click" Width="142" HorizontalAlignment="Left" Height="36" Background="IndianRed" Foreground="White"/>
+    </Grid>
+
+    <Grid Grid.Row="2" Margin="0 25"  Name="WeddingsBookButtonsGrid" Visibility="Collapsed">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="auto" />
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="auto"/>
+      </Grid.RowDefinitions>
+
+      <Button Grid.Column="0" x:Name="BackToPlacesButtonWeddingsBook" Click="BackToPlacesButton_Click" Content="Back" Width="142" HorizontalAlignment="Left" Height="36"/>
+      <Button Visibility="Collapsed" Grid.Column="1" x:Name="RemoveWeddingButton" Content="Remove wedding" Click="RemoveWeddingButton_Click" Width="142" HorizontalAlignment="Left" Height="36" Background="IndianRed" Foreground="White"/>
+    </Grid>
+
+    <Grid Grid.Row="2" Margin="0 25"  Name="DeathsBookButtonsGrid" Visibility="Collapsed">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="auto" />
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="auto"/>
+      </Grid.RowDefinitions>
+
+      <Button Grid.Column="0" x:Name="BackToPlacesButtonDeathsBook" Click="BackToPlacesButton_Click" Content="Back" Width="142" HorizontalAlignment="Left" Height="36"/>
+      <Button Visibility="Collapsed" Grid.Column="1" x:Name="RemoveDeathButton" Content="Remove death" Click="RemoveDeathButton_Click" Width="142" HorizontalAlignment="Left" Height="36" Background="IndianRed" Foreground="White"/>
+    </Grid>
+  </Grid>
+</Window>
