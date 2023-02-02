@@ -11,8 +11,8 @@ namespace ZIG_projekt_backend.Utils
         public List<Death> GetDeathsBookForPlace(int placeId)
         {
             return new List<Death>() {
-                new Death() { Name = "Tymoteusz Brzuszek"},
-                new Death() { Name = "Kunegunda Niemowa"}
+                new Death() { FirstName = "Tymoteusz", LastName="Brzuszek"},
+                new Death() { FirstName = "Kunegunda", LastName="Niemowa"}
             };
         }
 

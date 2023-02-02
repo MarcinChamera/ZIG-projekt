@@ -11,8 +11,8 @@ namespace ZIG_projekt_backend.Utils
         public List<Wedding> GetWeddingsBookForPlace(int placeId)
         {
             return new List<Wedding>() {
-                new Wedding() { Name = "Kleofas Sarna i Zofia Indor"},
-                new Wedding() { Name = "Marian Groźny i Celina Głaz"}
+                new Wedding() { GroomsFirstName = "Kleofas", GroomsLastName="Sarna", BridesFirstName="Zofia", BridesLastName="Indor" },
+                new Wedding() { GroomsFirstName = "Marian", GroomsLastName="Groźny", BridesFirstName="Celina", BridesLastName="Głaz" }
             };
         }
 
