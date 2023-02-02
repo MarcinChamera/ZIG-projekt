@@ -8,7 +8,7 @@ namespace ZIG_projekt_backend
 {
     public class Place
     {
-        public int PlaceId { get; set; }
+        public string PlaceId { get; set; }
 
         public string Name { get; set; }
 

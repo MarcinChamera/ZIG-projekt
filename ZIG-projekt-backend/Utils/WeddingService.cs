@@ -8,7 +8,7 @@ namespace ZIG_projekt_backend.Utils
 {
     public class WeddingService
     {
-        public List<Wedding> GetWeddingsBookForPlace(int placeId)
+        public List<Wedding> GetWeddingsBookForPlace(string placeId)
         {
             return new List<Wedding>() {
                 new Wedding() { GroomsFirstName = "Kleofas", GroomsLastName="Sarna", BridesFirstName="Zofia", BridesLastName="Indor" },
@@ -16,7 +16,7 @@ namespace ZIG_projekt_backend.Utils
             };
         }
 
-        public bool RemoveWedding(int placeId)
+        public bool RemoveWedding(string placeId)
         {
             return false;
         }
