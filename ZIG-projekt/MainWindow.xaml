@@ -19,17 +19,17 @@
 
     <StackPanel Grid.Row="0" x:Name="PlacesPanel" Width="auto" Visibility="Visible">
       <Label x:Name="DesignationsLabel" Content="Places" FontSize="24" Width="164" HorizontalAlignment="Left" Foreground="White"/>
-      <ListView x:Name="PlacesList" ItemsSource="{Binding Places}" SelectionMode="Single" SelectionChanged="PlacesList_SelectionChanged"  Width="auto" Height="450">
+      <ListView x:Name="PlacesList" ItemsSource="{Binding Places}" SelectionMode="Single" SelectionChanged="PlacesList_SelectionChanged"  Width="800" Height="450">
         <ListView.View>
           <GridView AllowsColumnReorder="True">
-            <GridViewColumn Header="Name" Width="202">
+            <GridViewColumn Header="Name" Width="200">
               <GridViewColumn.CellTemplate>
                 <DataTemplate>
                   <TextBlock TextWrapping="Wrap" Text="{Binding Name}"/>
                 </DataTemplate>
               </GridViewColumn.CellTemplate>
             </GridViewColumn>
-            <GridViewColumn Header="Description" Width="478">
+            <GridViewColumn Header="Description" Width="600">
               <GridViewColumn.CellTemplate>
                 <DataTemplate>
                   <TextBlock TextWrapping="Wrap" Text="{Binding Description}"/>
@@ -43,48 +43,55 @@
 
     <StackPanel Grid.Row="0" x:Name="BirthsBookPanel" Width="auto" Visibility="Collapsed">
       <Label x:Name="BirthsBookLabel" Content="Births Book"  FontSize="24" Width="200" HorizontalAlignment="Left" Foreground="White"/>
-      <ListView x:Name="BirthsList" ItemsSource="{Binding BirthsBook}" SelectionMode="Single" SelectionChanged="BirthsList_SelectionChanged"  Width="auto" Height="450">
+      <ListView x:Name="BirthsList" ItemsSource="{Binding BirthsBook}" SelectionMode="Single" SelectionChanged="BirthsList_SelectionChanged"  Width="800" Height="450" ScrollViewer.HorizontalScrollBarVisibility="Visible">
         <ListView.View>
           <GridView AllowsColumnReorder="True">
-            <GridViewColumn Header="First Name" Width="100">
+            <GridViewColumn Header="First Name" Width="200">
               <GridViewColumn.CellTemplate>
                 <DataTemplate>
                   <TextBlock TextWrapping="Wrap" Text="{Binding  Path=FirstName}"/>
                 </DataTemplate>
               </GridViewColumn.CellTemplate>
             </GridViewColumn>
-            <GridViewColumn Header="Last Name" Width="100">
+            <GridViewColumn Header="Last Name" Width="200">
               <GridViewColumn.CellTemplate>
                 <DataTemplate>
                   <TextBlock TextWrapping="Wrap" Text="{Binding  Path=LastName}"/>
                 </DataTemplate>
               </GridViewColumn.CellTemplate>
             </GridViewColumn>
-            <GridViewColumn Header="Date" Width="100">
+            <GridViewColumn Header="Date" Width="200">
               <GridViewColumn.CellTemplate>
                 <DataTemplate>
                   <TextBlock TextWrapping="Wrap" Text="{Binding  Path=Date}"/>
                 </DataTemplate>
               </GridViewColumn.CellTemplate>
             </GridViewColumn>
-            <GridViewColumn Header="Time" Width="100">
+            <GridViewColumn Header="Time" Width="200">
               <GridViewColumn.CellTemplate>
                 <DataTemplate>
                   <TextBlock TextWrapping="Wrap" Text="{Binding  Path=Time}"/>
                 </DataTemplate>
               </GridViewColumn.CellTemplate>
             </GridViewColumn>
-            <GridViewColumn Header="Mother's Name" Width="100">
+            <GridViewColumn Header="Mother's Name" Width="200">
               <GridViewColumn.CellTemplate>
                 <DataTemplate>
                   <TextBlock TextWrapping="Wrap" Text="{Binding  Path=MothersName}"/>
                 </DataTemplate>
               </GridViewColumn.CellTemplate>
             </GridViewColumn>
-            <GridViewColumn Header="Father's Name" Width="100">
+            <GridViewColumn Header="Father's Name" Width="200">
               <GridViewColumn.CellTemplate>
                 <DataTemplate>
                   <TextBlock TextWrapping="Wrap" Text="{Binding  Path=FathersName}"/>
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+            <GridViewColumn Header="Comment" Width="200">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock TextWrapping="Wrap" Text="{Binding  Path=Comment}"/>
                 </DataTemplate>
               </GridViewColumn.CellTemplate>
             </GridViewColumn>
@@ -95,13 +102,105 @@
 
     <StackPanel Grid.Row="0" x:Name="WeddingsBookPanel" Width="auto" Visibility="Collapsed">
       <Label x:Name="WeddingsBookLabel" Content="Weddings Book"  FontSize="24" Width="200" HorizontalAlignment="Left" Foreground="White"/>
-      <ListView x:Name="WeddingsList" ItemsSource="{Binding WeddingsBook}" SelectionMode="Single" SelectionChanged="WeddingsList_SelectionChanged"  Width="auto" Height="450">
+      <ListView x:Name="WeddingsList" ItemsSource="{Binding WeddingsBook}" SelectionMode="Single" SelectionChanged="WeddingsList_SelectionChanged"  Width="800" Height="450" ScrollViewer.HorizontalScrollBarVisibility="Visible">
         <ListView.View>
           <GridView AllowsColumnReorder="True">
-            <GridViewColumn Header="Name" Width="202">
+            <GridViewColumn Header="Date" Width="200">
               <GridViewColumn.CellTemplate>
                 <DataTemplate>
-                  <TextBlock TextWrapping="Wrap" Text="{Binding  Path=Name}"/>
+                  <TextBlock TextWrapping="Wrap" Text="{Binding  Path=Date}"/>
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+            <GridViewColumn Header="Bride's First Name" Width="200">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock TextWrapping="Wrap" Text="{Binding  Path=BridesFirstName}"/>
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+            <GridViewColumn Header="Bride's Last Name" Width="200">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock TextWrapping="Wrap" Text="{Binding  Path=BridesLastName}"/>
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+            <GridViewColumn Header="Bride's Mother's First Name" Width="200">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock TextWrapping="Wrap" Text="{Binding  Path=BridesMothersFirstName}"/>
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+            <GridViewColumn Header="Bride's Mothers's Last Name" Width="200">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock TextWrapping="Wrap" Text="{Binding  Path=BridesMothersLastName}"/>
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+            <GridViewColumn Header="Bride's Father's First Name" Width="200">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock TextWrapping="Wrap" Text="{Binding  Path=BridesFathersFirstName}"/>
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+            <GridViewColumn Header="Bride's Father's Last Name" Width="200">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock TextWrapping="Wrap" Text="{Binding  Path=BridesFathersLastName}"/>
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+            <!--a-->
+            <GridViewColumn Header="Groom's First Name" Width="200">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock TextWrapping="Wrap" Text="{Binding  Path=GroomsFirstName}"/>
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+            <GridViewColumn Header="Groom's Last Name" Width="200">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock TextWrapping="Wrap" Text="{Binding  Path=GroomsLastName}"/>
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+            <GridViewColumn Header="Groom's Mother's First Name" Width="200">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock TextWrapping="Wrap" Text="{Binding  Path=GroomsMothersFirstName}"/>
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+            <GridViewColumn Header="Groom's Mothers's Last Name" Width="200">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock TextWrapping="Wrap" Text="{Binding  Path=GroomsMothersLastName}"/>
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+            <GridViewColumn Header="Groom's Father's First Name" Width="200">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock TextWrapping="Wrap" Text="{Binding  Path=GroomsFathersFirstName}"/>
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+            <GridViewColumn Header="Groom's Father's Last Name" Width="200">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock TextWrapping="Wrap" Text="{Binding  Path=GroomsFathersLastName}"/>
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+            <GridViewColumn Header="Comment" Width="200">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock TextWrapping="Wrap" Text="{Binding  Path=Comment}"/>
                 </DataTemplate>
               </GridViewColumn.CellTemplate>
             </GridViewColumn>
@@ -112,13 +211,34 @@
 
     <StackPanel Grid.Row="0" x:Name="DeathsBookPanel" Width="auto" Visibility="Collapsed">
       <Label x:Name="DeathsBookLabel" Content="Deaths Book"  FontSize="24" Width="200" HorizontalAlignment="Left" Foreground="White"/>
-      <ListView x:Name="DeathsList" ItemsSource="{Binding DeathsBook}" SelectionMode="Single" SelectionChanged="DeathsList_SelectionChanged"  Width="auto" Height="450">
+      <ListView x:Name="DeathsList" ItemsSource="{Binding DeathsBook}" SelectionMode="Single" SelectionChanged="DeathsList_SelectionChanged"  Width="800" Height="450" ScrollViewer.HorizontalScrollBarVisibility="Visible">
         <ListView.View>
           <GridView AllowsColumnReorder="True">
-            <GridViewColumn Header="Name" Width="202">
+            <GridViewColumn Header="First Name" Width="200">
               <GridViewColumn.CellTemplate>
                 <DataTemplate>
-                  <TextBlock TextWrapping="Wrap" Text="{Binding  Path=Name}"/>
+                  <TextBlock TextWrapping="Wrap" Text="{Binding  Path=FirstName}"/>
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+            <GridViewColumn Header="Last Name" Width="200">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock TextWrapping="Wrap" Text="{Binding  Path=LastName}"/>
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+            <GridViewColumn Header="Date" Width="200">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock TextWrapping="Wrap" Text="{Binding  Path=Date}"/>
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+            <GridViewColumn Header="Comment" Width="200">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock TextWrapping="Wrap" Text="{Binding  Path=Comment}"/>
                 </DataTemplate>
               </GridViewColumn.CellTemplate>
             </GridViewColumn>
@@ -158,6 +278,21 @@
       <Label Content="Last Name" FontSize="16" Foreground="White"/>
       <TextBox Name="BirthLastNameBox" Background="#FFFFFF" FontSize="16"/>
 
+      <Label Content="Date" FontSize="16" Foreground="White"/>
+      <TextBox Name="BirthDateBox" Background="#FFFFFF" FontSize="16"/>
+
+      <Label Content="Time" FontSize="16" Foreground="White"/>
+      <TextBox Name="BirthTimeBox" Background="#FFFFFF" FontSize="16"/>
+
+      <Label Content="Mother's Name" FontSize="16" Foreground="White"/>
+      <TextBox Name="BirthMothersNameBox" Background="#FFFFFF" FontSize="16"/>
+
+      <Label Content="Father's Name" FontSize="16" Foreground="White"/>
+      <TextBox Name="BirthFathersNameBox" Background="#FFFFFF" FontSize="16"/>
+
+      <Label Content="Comment" FontSize="16" Foreground="White"/>
+      <TextBox Name="BirthCommentBox" Background="#FFFFFF" FontSize="16"/>
+
       <Button 
                 x:Name="AddBirthConfirmButton"
                 Click="AddBirthConfirmButton_Click"
@@ -174,8 +309,44 @@
     <StackPanel Name="AddNewWeddingPanel" Visibility="Collapsed" Width="400" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="50 0">
       <Label Content="Add new wedding" FontSize="24" Foreground="White"/>
 
-      <Label Content="Name" FontSize="16" Foreground="White"/>
-      <TextBox Name="WeddingNameBox" Background="#FFFFFF" FontSize="16"/>
+      <Label Content="Date" FontSize="16" Foreground="White"/>
+      <TextBox Name="WeddingDateBox" Background="#FFFFFF" FontSize="16"/>
+
+      <Label Content="Bride's First Name" FontSize="16" Foreground="White"/>
+      <TextBox Name="WeddingBridesFirstNameBox" Background="#FFFFFF" FontSize="16"/>
+
+      <Label Content="Bride's Last Name" FontSize="16" Foreground="White"/>
+      <TextBox Name="WeddingBridesLastNameBox" Background="#FFFFFF" FontSize="16"/>
+
+      <Label Content="Bride's Mother's First Name" FontSize="16" Foreground="White"/>
+      <TextBox Name="WeddingBridesMothersFirstNameBox" Background="#FFFFFF" FontSize="16"/>
+
+      <Label Content="Bride's Mother's Last Name" FontSize="16" Foreground="White"/>
+      <TextBox Name="WeddingBridesMothersLastNameBox" Background="#FFFFFF" FontSize="16"/>
+
+      <Label Content="Bride's Father's First Name" FontSize="16" Foreground="White"/>
+      <TextBox Name="WeddingBridesFathersFirstNameBox" Background="#FFFFFF" FontSize="16"/>
+
+      <Label Content="Bride's Father's Last Name" FontSize="16" Foreground="White"/>
+      <TextBox Name="WeddingBridesFathersLastNameBox" Background="#FFFFFF" FontSize="16"/>
+      <!--a-->
+      <!--<Label Content="Groom's First Name" FontSize="16" Foreground="White"/>
+      <TextBox Name="WeddingGroomsFirstNameBox" Background="#FFFFFF" FontSize="16"/>
+
+      <Label Content="Groom's Last Name" FontSize="16" Foreground="White"/>
+      <TextBox Name="WeddingGroomsLastNameBox" Background="#FFFFFF" FontSize="16"/>
+
+      <Label Content="Groom's Mother's First Name" FontSize="16" Foreground="White"/>
+      <TextBox Name="WeddingGroomsMothersFirstNameBox" Background="#FFFFFF" FontSize="16"/>
+
+      <Label Content="Groom's Mother's Last Name" FontSize="16" Foreground="White"/>
+      <TextBox Name="WeddingGroomsMothersLastNameBox" Background="#FFFFFF" FontSize="16"/>
+
+      <Label Content="Groom's Father's First Name" FontSize="16" Foreground="White"/>
+      <TextBox Name="WeddingGroomsFathersFirstNameBox" Background="#FFFFFF" FontSize="16"/>
+
+      <Label Content="Groom's Father's Last Name" FontSize="16" Foreground="White"/>
+      <TextBox Name="WeddingGroomsFathersLastNameBox" Background="#FFFFFF" FontSize="16"/>-->
 
       <Button 
                 x:Name="AddWeddingConfirmButton"
@@ -193,8 +364,17 @@
     <StackPanel Name="AddNewDeathPanel" Visibility="Collapsed" Width="400" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="50 0">
       <Label Content="Add new death" FontSize="24" Foreground="White"/>
 
-      <Label Content="Name" FontSize="16" Foreground="White"/>
-      <TextBox Name="DeathNameBox" Background="#FFFFFF" FontSize="16"/>
+      <Label Content="First Name" FontSize="16" Foreground="White"/>
+      <TextBox Name="DeathFirstNameBox" Background="#FFFFFF" FontSize="16"/>
+
+      <Label Content="Last Name" FontSize="16" Foreground="White"/>
+      <TextBox Name="DeathLastNameBox" Background="#FFFFFF" FontSize="16"/>
+
+      <Label Content="Date" FontSize="16" Foreground="White"/>
+      <TextBox Name="DeathDateBox" Background="#FFFFFF" FontSize="16"/>
+
+      <Label Content="Comment" FontSize="16" Foreground="White"/>
+      <TextBox Name="DeathCommentBox" Background="#FFFFFF" FontSize="16"/>
 
       <Button 
                 x:Name="AddDeathConfirmButton"
