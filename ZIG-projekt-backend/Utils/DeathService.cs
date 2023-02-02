@@ -8,7 +8,7 @@ namespace ZIG_projekt_backend.Utils
 {
     public class DeathService
     {
-        public List<Death> GetDeathsBookForPlace(int placeId)
+        public List<Death> GetDeathsBookForPlace(string placeId)
         {
             return new List<Death>() {
                 new Death() { FirstName = "Tymoteusz", LastName="Brzuszek"},
@@ -16,7 +16,7 @@ namespace ZIG_projekt_backend.Utils
             };
         }
 
-        public bool RemoveDeath(int placeId)
+        public bool RemoveDeath(string placeId)
         {
             return false;
         }

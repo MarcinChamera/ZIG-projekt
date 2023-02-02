@@ -16,7 +16,7 @@ namespace ZIG_projekt_backend
 
         public string Comment { get; set; }
 
-        public int PlaceId { get; set; }
+        public string PlaceId { get; set; }
 
     }
 }

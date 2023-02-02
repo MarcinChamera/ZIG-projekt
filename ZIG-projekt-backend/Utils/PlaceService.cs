@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ZIG_projekt_backend.Utils
 {
@@ -16,7 +17,10 @@ namespace ZIG_projekt_backend.Utils
         /// <returns><c>true</c> if destination added, <c>false</c> otherwise.</returns>
         public bool AddNewPlace(string name, string description)
         {
-            return false;
+            var path = @"C:\Users\Dariusz\Source\Repos\ZIG-projekt\ZIG-projekt-backend\Utils\places.txt";
+            File.WriteAllText(path, name);
+            Directory.CreateDirectory(@"C:\Users\Dariusz\Source\Repos\ZIG-projekt\ZIG-projekt-backend\Utils\"+name);
+            return true;
         }
 
         /// <summary>
@@ -35,13 +39,18 @@ namespace ZIG_projekt_backend.Utils
         /// <returns>List&lt;Destination&gt;.</returns>
         public List<Place> GetAllPlaces()
         {
-            return new List<Place>() {
-                new Place() { Name = "Kraków"},
-                new Place() { Name = "Warszawa"}
-            };
+            List <Place> listOfPlaces = new List<Place>();
+            var path = @"C:\Users\Dariusz\Source\Repos\ZIG-projekt\ZIG-projekt-backend\Utils\places.txt";
+            string[] lines = File.ReadAllLines(path, Encoding.UTF8);
+            foreach (string line in lines)
+            {
+                listOfPlaces.Add(new Place() { Name = line });
+                Console.WriteLine(line);
+            }
+            return listOfPlaces;
         }
 
-        public bool RemovePlace(int placeId)
+        public bool RemovePlace(string placeId)
         {
             return false;
         }

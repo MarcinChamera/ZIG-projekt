@@ -22,3 +22,15 @@ D:\repos\ZIG-projekt\ZIG-projekt-backend\obj\Debug\net6.0\ZIG-projekt-backend.dl
 D:\repos\ZIG-projekt\ZIG-projekt-backend\obj\Debug\net6.0\refint\ZIG-projekt-backend.dll
 D:\repos\ZIG-projekt\ZIG-projekt-backend\obj\Debug\net6.0\ZIG-projekt-backend.pdb
 D:\repos\ZIG-projekt\ZIG-projekt-backend\obj\Debug\net6.0\ref\ZIG-projekt-backend.dll
+C:\Users\Dariusz\Source\Repos\ZIG-projekt\ZIG-projekt-backend\bin\Debug\net6.0\ZIG-projekt-backend.deps.json
+C:\Users\Dariusz\Source\Repos\ZIG-projekt\ZIG-projekt-backend\bin\Debug\net6.0\ZIG-projekt-backend.dll
+C:\Users\Dariusz\Source\Repos\ZIG-projekt\ZIG-projekt-backend\bin\Debug\net6.0\ZIG-projekt-backend.pdb
+C:\Users\Dariusz\Source\Repos\ZIG-projekt\ZIG-projekt-backend\obj\Debug\net6.0\ZIG-projekt-backend.csproj.AssemblyReference.cache
+C:\Users\Dariusz\Source\Repos\ZIG-projekt\ZIG-projekt-backend\obj\Debug\net6.0\ZIG-projekt-backend.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dariusz\Source\Repos\ZIG-projekt\ZIG-projekt-backend\obj\Debug\net6.0\ZIG-projekt-backend.AssemblyInfoInputs.cache
+C:\Users\Dariusz\Source\Repos\ZIG-projekt\ZIG-projekt-backend\obj\Debug\net6.0\ZIG-projekt-backend.AssemblyInfo.cs
+C:\Users\Dariusz\Source\Repos\ZIG-projekt\ZIG-projekt-backend\obj\Debug\net6.0\ZIG-projekt-backend.csproj.CoreCompileInputs.cache
+C:\Users\Dariusz\Source\Repos\ZIG-projekt\ZIG-projekt-backend\obj\Debug\net6.0\ZIG-projekt-backend.dll
+C:\Users\Dariusz\Source\Repos\ZIG-projekt\ZIG-projekt-backend\obj\Debug\net6.0\refint\ZIG-projekt-backend.dll
+C:\Users\Dariusz\Source\Repos\ZIG-projekt\ZIG-projekt-backend\obj\Debug\net6.0\ZIG-projekt-backend.pdb
+C:\Users\Dariusz\Source\Repos\ZIG-projekt\ZIG-projekt-backend\obj\Debug\net6.0\ref\ZIG-projekt-backend.dll
