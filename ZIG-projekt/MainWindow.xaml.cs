@@ -150,11 +150,7 @@ namespace ZIG_projekt
         {
             if (this.PlaceNameBox.Text.Length > 0 && this.PlaceDescriptionBox.Text.Length > 0)
             {
-                //bool added = this.DestinationService.AddNewDestination(this.DestinationNameBox.Text, this.DestinationDescriptionBox.Text);
-
-                // TODO
-                // zapis Miejsca
-                bool added = true;
+                bool added = this.PlaceService.AddNewPlace(this.PlaceNameBox.Text, this.PlaceDescriptionBox.Text);
                 if (added)
                 {
                     this.PlaceNameBox.Text = "";
@@ -222,7 +218,7 @@ namespace ZIG_projekt
             this.PlacesButtonsGrid.Visibility = Visibility.Collapsed;
 
             this.WeddingsBookPanel.Visibility = Visibility.Visible;
-            this.AddNewWeddingPanel.Visibility = Visibility.Visible;
+            this.AddNewWeddingGrid.Visibility = Visibility.Visible;
             this.WeddingsBookButtonsGrid.Visibility = Visibility.Visible;
         }
 
@@ -262,7 +258,7 @@ namespace ZIG_projekt
             this.BirthsBookButtonsGrid.Visibility = Visibility.Collapsed;
 
             this.WeddingsBookPanel.Visibility = Visibility.Collapsed;
-            this.AddNewWeddingPanel.Visibility = Visibility.Collapsed;
+            this.AddNewWeddingGrid.Visibility = Visibility.Collapsed;
             this.WeddingsBookButtonsGrid.Visibility = Visibility.Collapsed;
 
             this.DeathsBookPanel.Visibility = Visibility.Collapsed;
@@ -283,7 +279,7 @@ namespace ZIG_projekt
         {
             if (this.SelectedPlace != null)
             {
-                var result = this.PlaceService.RemovePlace(this.SelectedPlace.PlaceId);
+                var result = this.PlaceService.RemovePlace(PlacesList.Items.IndexOf(this.SelectedPlace).ToString());
 
                 if (result)
                 {
@@ -299,7 +295,7 @@ namespace ZIG_projekt
         {
             if (this.SelectedBirth != null)
             {
-                var result = this.BirthsBookService.RemoveBirth(this.SelectedBirth.PlaceId);
+                var result = this.BirthsBookService.RemoveBirth(BirthsList.Items.IndexOf(this.SelectedBirth).ToString());
 
                 if (result)
                 {
@@ -312,7 +308,7 @@ namespace ZIG_projekt
         {
             if (this.SelectedWedding != null)
             {
-                var result = this.WeddingsBookService.RemoveWedding(this.SelectedWedding.PlaceId);
+                var result = this.WeddingsBookService.RemoveWedding(WeddingsList.Items.IndexOf(this.SelectedWedding).ToString());
 
                 if (result)
                 {
@@ -325,7 +321,7 @@ namespace ZIG_projekt
         {
             if (this.SelectedDeath != null)
             {
-                var result = this.DeathsBookService.RemoveDeath(this.SelectedDeath.PlaceId);
+                var result = this.DeathsBookService.RemoveDeath(DeathsList.Items.IndexOf(this.SelectedDeath).ToString());
 
                 if (result)
                 {
@@ -336,17 +332,102 @@ namespace ZIG_projekt
 
         private void AddBirthConfirmButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (this.BirthDateBox.Text.Length > 0 && this.BirthFirstNameBox.Text.Length > 0 && this.BirthLastNameBox.Text.Length > 0 && this.BirthMothersNameBox.Text.Length > 0 && this.BirthFathersNameBox.Text.Length > 0)
+            {
+                //bool added = this.BirthsBookService.AddNewBirth(this.BirthDateBox.Text, this.BirthFirstNameBox.Text, this.BirthLastNameBox.Text, this.BirthMothersNameBox.Text, this.BirthFathersNameBox.Text, this.BirthCommentBox.Text);
+                //if (added)
+                //{
+                //    this.BirthDateBox.Text = "";
+                //    this.BirthFirstNameBox.Text = "";
+                //    this.BirthLastNameBox.Text = "";
+                //    this.BirthMothersNameBox.Text = "";
+                //    this.BirthFathersNameBox.Text = "";
+                //    this.BirthCommentBox.Text = "";
+                //    this.UpdatePlaces();
+                //}
+            }
         }
 
         private void AddWeddingConfirmButton_Click(object sender, RoutedEventArgs e)
         {
+            if (this.WeddingDateBox.Text.Length > 0 && this.WeddingBridesFirstNameBox.Text.Length > 0 && this.WeddingBridesLastNameBox.Text.Length > 0 && this.WeddingBridesMothersFirstNameBox.Text.Length > 0 &&
+                this.WeddingBridesMothersLastNameBox.Text.Length > 0 && this.WeddingBridesFathersFirstNameBox.Text.Length > 0 && this.WeddingBridesFathersLastNameBox.Text.Length > 0 &&
+                this.WeddingGroomsFirstNameBox.Text.Length > 0 && this.WeddingGroomsLastNameBox.Text.Length > 0 && this.WeddingGroomsMothersFirstNameBox.Text.Length > 0 &&
+                this.WeddingGroomsMothersLastNameBox.Text.Length > 0 && this.WeddingGroomsFathersFirstNameBox.Text.Length > 0 && this.WeddingGroomsFathersLastNameBox.Text.Length > 0)
 
+            {
+                //bool added = this.WeddingsBookService.AddNewWedding(
+                //    this.WeddingDateBox.Text,
+                //    this.WeddingBridesFirstNameBox.Text,
+                //    this.WeddingBridesLastNameBox.Text,
+                //    this.WeddingBridesMothersFirstNameBox.Text,
+                //    this.WeddingBridesMothersLastNameBox.Text,
+                //    this.WeddingBridesFathersFirstNameBox.Text,
+                //    this.WeddingBridesFathersLastNameBox.Text,
+                //    this.WeddingGroomsFirstNameBox.Text,
+                //    this.WeddingGroomsLastNameBox.Text,
+                //    this.WeddingGroomsMothersFirstNameBox.Text,
+                //    this.WeddingGroomsMothersLastNameBox.Text,
+                //    this.WeddingGroomsFathersFirstNameBox.Text,
+                //    this.WeddingGroomsFathersLastNameBox.Text,
+                //    this.WeddingCommentBox.Text);
+                //if (added)
+                //{
+                //    this.WeddingDateBox.Text = "";
+                //    this.WeddingBridesFirstNameBox.Text = "";
+                //    this.WeddingBridesLastNameBox.Text = "";
+                //    this.WeddingBridesMothersFirstNameBox.Text = "";
+                //    this.WeddingBridesMothersLastNameBox.Text = "";
+                //    this.WeddingBridesFathersFirstNameBox.Text = "";
+                //    this.WeddingBridesFathersLastNameBox.Text = "";
+                //    this.WeddingGroomsFirstNameBox.Text = "";
+                //    this.WeddingGroomsLastNameBox.Text = "";
+                //    this.WeddingGroomsMothersFirstNameBox.Text = "";
+                //    this.WeddingGroomsMothersLastNameBox.Text = "";
+                //    this.WeddingGroomsFathersFirstNameBox.Text = "";
+                //    this.WeddingGroomsFathersLastNameBox.Text = "";
+                //    this.WeddingCommentBox.Text = "";
+                //    this.UpdatePlaces();
+                //}
+            }
         }
 
         private void AddDeathConfirmButton_Click(object sender, RoutedEventArgs e)
         {
+            if (this.DeathDateBox.Text.Length > 0 && this.DeathFirstNameBox.Text.Length > 0 && this.DeathLastNameBox.Text.Length > 0)
+            {
+                //bool added = this.BirthsBookService.AddNewBirth(this.BirthDateBox.Text, this.BirthFirstNameBox.Text, this.BirthLastNameBox.Text, this.BirthMothersNameBox.Text, this.BirthFathersNameBox.Text, this.BirthCommentBox.Text);
+                //if (added)
+                //{
+                //    this.BirthDateBox.Text = "";
+                //    this.BirthFirstNameBox.Text = "";
+                //    this.BirthLastNameBox.Text = "";
+                //    this.BirthMothersNameBox.Text = "";
+                //    this.BirthFathersNameBox.Text = "";
+                //    this.BirthCommentBox.Text = "";
+                //    this.UpdatePlaces();
+                //}
+            }
+        }
 
+        public void ExportPlacesButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.PlaceService.ExportPlaces();
+        }
+
+        public void ExportBirthsBookButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.BirthsBookService.ExportBirthsBook(PlacesList.Items.IndexOf(this.SelectedPlace).ToString());
+        }
+
+        public void ExportWeddingsBookButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.WeddingsBookService.ExportWeddingsBook(PlacesList.Items.IndexOf(this.SelectedPlace).ToString());
+        }
+
+        public void ExportDeathsBookButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.DeathsBookService.ExportDeathsBook(PlacesList.Items.IndexOf(this.SelectedPlace).ToString());
         }
 
         /// <summary>
@@ -357,20 +438,6 @@ namespace ZIG_projekt
         private void BackToPlacesButton_Click(object sender, RoutedEventArgs e)
         {
             this.SwitchToPlacePanel();
-        }
-
-        /// <summary>
-        /// Numbers the validation text box.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="TextCompositionEventArgs"/> instance containing the event data.</param>
-        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
-        {
-            e.Handled = !IsDecimal(e.Text);
-        }
-        bool IsDecimal(string input)
-        {
-            return Decimal.TryParse(input, out Decimal d);
         }
     }
 }

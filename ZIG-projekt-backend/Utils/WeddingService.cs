@@ -20,5 +20,10 @@ namespace ZIG_projekt_backend.Utils
         {
             return false;
         }
+
+        public void ExportWeddingsBook(string placeId)
+        {
+
+        }
     }
 }

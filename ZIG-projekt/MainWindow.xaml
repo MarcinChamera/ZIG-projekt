@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ZIG_projekt"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1280"  Background="#272537">
+        Title="MainWindow" Height="720" Width="1280"  Background="SlateGray">
   <Grid Margin="50">
     <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="auto"/>
-      <ColumnDefinition Width="auto"/>
+      <ColumnDefinition Width="5*"/>
+      <ColumnDefinition Width="2*"/>
     </Grid.ColumnDefinitions>
     <Grid.RowDefinitions>
       <RowDefinition Height="auto"/>
@@ -17,9 +17,17 @@
       <RowDefinition Height="auto"/>
     </Grid.RowDefinitions>
 
-    <StackPanel Grid.Row="0" x:Name="PlacesPanel" Width="auto" Visibility="Visible">
-      <Label x:Name="DesignationsLabel" Content="Places" FontSize="24" Width="164" HorizontalAlignment="Left" Foreground="White"/>
-      <ListView x:Name="PlacesList" ItemsSource="{Binding Places}" SelectionMode="Single" SelectionChanged="PlacesList_SelectionChanged"  Width="800" Height="450">
+    <StackPanel Grid.Row="0" x:Name="PlacesPanel" Visibility="Visible">
+      <StackPanel Orientation="Horizontal">
+        <Label x:Name="PlacesLabel" Content="Places" FontSize="25" HorizontalAlignment="Left" Foreground="White"/>
+        <Button Margin="10 0 0 0" Background="Transparent" Foreground="white" Width="100" Click="ExportPlacesButton_Click">
+          <ContentControl>
+            <!--<Image Source="images/icons8-export-excel-24.png" Width="24" Height="24"></Image>-->
+            <Label Content="Export to xlsx" Foreground="White"/>
+          </ContentControl>
+        </Button>
+      </StackPanel>
+      <ListView x:Name="PlacesList" ItemsSource="{Binding Places}" SelectionMode="Single" SelectionChanged="PlacesList_SelectionChanged" Height="450">
         <ListView.View>
           <GridView AllowsColumnReorder="True">
             <GridViewColumn Header="Name" Width="200">
@@ -41,9 +49,17 @@
       </ListView>
     </StackPanel>
 
-    <StackPanel Grid.Row="0" x:Name="BirthsBookPanel" Width="auto" Visibility="Collapsed">
-      <Label x:Name="BirthsBookLabel" Content="Births Book"  FontSize="24" Width="200" HorizontalAlignment="Left" Foreground="White"/>
-      <ListView x:Name="BirthsList" ItemsSource="{Binding BirthsBook}" SelectionMode="Single" SelectionChanged="BirthsList_SelectionChanged"  Width="800" Height="450" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+    <StackPanel Grid.Row="0" x:Name="BirthsBookPanel" Visibility="Collapsed">
+      <StackPanel Orientation="Horizontal">
+        <Label x:Name="BirthsBookLabel" Content="Births Book"  FontSize="25" HorizontalAlignment="Left" Foreground="White"/>
+        <Button Margin="10 0 0 0" Background="Transparent" Foreground="white" Width="100" Click="ExportBirthsBookButton_Click">
+          <ContentControl>
+            <!--<Image Source="images/icons8-export-excel-24.png" Width="24" Height="24"></Image>-->
+            <Label Content="Export to xlsx" Foreground="White"/>
+          </ContentControl>
+        </Button>
+      </StackPanel>
+      <ListView x:Name="BirthsList" ItemsSource="{Binding BirthsBook}" SelectionMode="Single" SelectionChanged="BirthsList_SelectionChanged" Height="450" ScrollViewer.HorizontalScrollBarVisibility="Visible">
         <ListView.View>
           <GridView AllowsColumnReorder="True">
             <GridViewColumn Header="First Name" Width="200">
@@ -100,9 +116,17 @@
       </ListView>
     </StackPanel>
 
-    <StackPanel Grid.Row="0" x:Name="WeddingsBookPanel" Width="auto" Visibility="Collapsed">
-      <Label x:Name="WeddingsBookLabel" Content="Weddings Book"  FontSize="24" Width="200" HorizontalAlignment="Left" Foreground="White"/>
-      <ListView x:Name="WeddingsList" ItemsSource="{Binding WeddingsBook}" SelectionMode="Single" SelectionChanged="WeddingsList_SelectionChanged"  Width="800" Height="450" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+    <StackPanel Grid.Row="0" x:Name="WeddingsBookPanel" Visibility="Collapsed">
+      <StackPanel Orientation="Horizontal">
+        <Label x:Name="WeddingsBookLabel" Content="Weddings Book"  FontSize="25" HorizontalAlignment="Left" Foreground="White"/>
+        <Button Margin="10 0 0 0" Background="Transparent" Foreground="white" Width="100" Click="ExportWeddingsBookButton_Click">
+          <ContentControl>
+            <!--<Image Source="images/icons8-export-excel-24.png" Width="24" Height="24"></Image>-->
+            <Label Content="Export to xlsx" Foreground="White"/>
+          </ContentControl>
+        </Button>
+      </StackPanel>
+      <ListView x:Name="WeddingsList" ItemsSource="{Binding WeddingsBook}" SelectionMode="Single" SelectionChanged="WeddingsList_SelectionChanged" Height="450" ScrollViewer.HorizontalScrollBarVisibility="Visible">
         <ListView.View>
           <GridView AllowsColumnReorder="True">
             <GridViewColumn Header="Date" Width="200">
@@ -210,8 +234,16 @@
     </StackPanel>
 
     <StackPanel Grid.Row="0" x:Name="DeathsBookPanel" Width="auto" Visibility="Collapsed">
-      <Label x:Name="DeathsBookLabel" Content="Deaths Book"  FontSize="24" Width="200" HorizontalAlignment="Left" Foreground="White"/>
-      <ListView x:Name="DeathsList" ItemsSource="{Binding DeathsBook}" SelectionMode="Single" SelectionChanged="DeathsList_SelectionChanged"  Width="800" Height="450" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+      <StackPanel Orientation="Horizontal">
+        <Label x:Name="DeathsBookLabel" Content="Deaths Book"  FontSize="25" HorizontalAlignment="Left" Foreground="White"/>
+        <Button Margin="10 0 0 0" Background="Transparent" Foreground="white" Width="100" Click="ExportDeathsBookButton_Click">
+          <ContentControl>
+            <!--<Image Source="images/icons8-export-excel-24.png" Width="24" Height="24"></Image>-->
+            <Label Content="Export to xlsx" Foreground="White"/>
+          </ContentControl>
+        </Button>
+      </StackPanel>
+      <ListView x:Name="DeathsList" ItemsSource="{Binding DeathsBook}" SelectionMode="Single" SelectionChanged="DeathsList_SelectionChanged" Height="450" ScrollViewer.HorizontalScrollBarVisibility="Visible">
         <ListView.View>
           <GridView AllowsColumnReorder="True">
             <GridViewColumn Header="First Name" Width="200">
@@ -247,163 +279,220 @@
       </ListView>
     </StackPanel>
 
-    <StackPanel Name="AddNewPlacePanel" Visibility="Visible" Width="400" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="50 0">
-      <Label Content="Add new place" FontSize="24" Foreground="White"/>
+    <Grid Name="AddNewPlacePanel" Visibility="Visible" MaxHeight="500" Grid.Column="1" Grid.Row="0" Margin="20 0 20 0">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="5*"/>
+        <RowDefinition Height="*"/>
+      </Grid.RowDefinitions>
+      <Label Content="Add new place" FontSize="24" Foreground="White" Width="300" Margin="40 0 0 0"/>
+      <Border BorderBrush="White" BorderThickness="2" Grid.Row="1" >
 
-      <Label Content="Name" FontSize="16" Foreground="White"/>
-      <TextBox Name="PlaceNameBox" Background="#FFFFFF" FontSize="16"/>
+        <ScrollViewer VerticalScrollBarVisibility="Visible" FlowDirection="LeftToRight">
+          <StackPanel FlowDirection="LeftToRight" Margin="20 0 20 20">
 
-      <Label Content="Description" FontSize="16" Foreground="White"/>
-      <TextBox Name="PlaceDescriptionBox" Background="#FFFFFF" FontSize="16"/>
+            <Label Content="Name" FontSize="16" Foreground="White"/>
+            <TextBox Name="PlaceNameBox" Background="#FFFFFF" FontSize="16"/>
 
-      <Button 
-                x:Name="AddPlaceConfirmButton"
-                Content="Add place" 
-                Width="140" 
-                Height="36" 
-                Visibility="Visible" 
-                Background="MediumSpringGreen"
-                Margin="40"
-                Click="AddPlaceConfirmButton_Click"
-                Foreground="White"
-                />
-    </StackPanel>
+            <Label Content="Description" FontSize="16" Foreground="White"/>
+            <TextBox Name="PlaceDescriptionBox" Background="#FFFFFF" FontSize="16"/>
 
-    <StackPanel Name="AddNewBirthPanel" Visibility="Collapsed" Width="400" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="50 0">
-      <Label Content="Add new birth event" FontSize="24" Foreground="White"/>
 
-      <Label Content="First Name" FontSize="16" Foreground="White"/>
-      <TextBox Name="BirthFirstNameBox" Background="#FFFFFF" FontSize="16"/>
+          </StackPanel>
+        </ScrollViewer>
+      </Border>
+      <Button Grid.Row="2"
+                  x:Name="AddPlaceConfirmButton"
+                  Click="AddPlaceConfirmButton_Click"
+                  Content="Add place" 
+                  Width="140" 
+                  Height="36" 
+                  Visibility="Visible" 
+                  Background="MediumPurple"
+                  Foreground="White"
+                  HorizontalAlignment="Center"
+                  Margin="0 30 0 0"
+                  />
+    </Grid>
 
-      <Label Content="Last Name" FontSize="16" Foreground="White"/>
-      <TextBox Name="BirthLastNameBox" Background="#FFFFFF" FontSize="16"/>
+    <Grid Name="AddNewBirthPanel" Visibility="Collapsed" MaxHeight="500" Grid.Column="1" Grid.Row="0" Margin="20 0 20 0">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="5*"/>
+        <RowDefinition Height="*"/>
+      </Grid.RowDefinitions>
+      <Label Content="Add new birth" FontSize="24" Foreground="White" Width="300" Margin="40 0 0 0"/>
+      <Border BorderBrush="White" BorderThickness="2" Grid.Row="1" >
 
-      <Label Content="Date" FontSize="16" Foreground="White"/>
-      <TextBox Name="BirthDateBox" Background="#FFFFFF" FontSize="16"/>
+        <ScrollViewer VerticalScrollBarVisibility="Visible" FlowDirection="LeftToRight">
+          <StackPanel FlowDirection="LeftToRight" Margin="20 0 20 20">
 
-      <Label Content="Time" FontSize="16" Foreground="White"/>
-      <TextBox Name="BirthTimeBox" Background="#FFFFFF" FontSize="16"/>
+            <Label Content="First Name" FontSize="16" Foreground="White"/>
+            <TextBox Name="BirthFirstNameBox" Background="#FFFFFF" FontSize="16"/>
 
-      <Label Content="Mother's Name" FontSize="16" Foreground="White"/>
-      <TextBox Name="BirthMothersNameBox" Background="#FFFFFF" FontSize="16"/>
+            <Label Content="Last Name" FontSize="16" Foreground="White"/>
+            <TextBox Name="BirthLastNameBox" Background="#FFFFFF" FontSize="16"/>
 
-      <Label Content="Father's Name" FontSize="16" Foreground="White"/>
-      <TextBox Name="BirthFathersNameBox" Background="#FFFFFF" FontSize="16"/>
+            <Label Content="Date" FontSize="16" Foreground="White"/>
+            <TextBox Name="BirthDateBox" Background="#FFFFFF" FontSize="16"/>
 
-      <Label Content="Comment" FontSize="16" Foreground="White"/>
-      <TextBox Name="BirthCommentBox" Background="#FFFFFF" FontSize="16"/>
+            <Label Content="Time" FontSize="16" Foreground="White"/>
+            <TextBox Name="BirthTimeBox" Background="#FFFFFF" FontSize="16"/>
 
-      <Button 
+            <Label Content="Mother's Name" FontSize="16" Foreground="White"/>
+            <TextBox Name="BirthMothersNameBox" Background="#FFFFFF" FontSize="16"/>
+
+            <Label Content="Father's Name" FontSize="16" Foreground="White"/>
+            <TextBox Name="BirthFathersNameBox" Background="#FFFFFF" FontSize="16"/>
+
+            <Label Content="Comment" FontSize="16" Foreground="White"/>
+            <TextBox Name="BirthCommentBox" Background="#FFFFFF" FontSize="16"/>
+
+         
+          </StackPanel>
+        </ScrollViewer>
+
+      </Border>
+      <Button Grid.Row="2"
                 x:Name="AddBirthConfirmButton"
                 Click="AddBirthConfirmButton_Click"
                 Content="Add birth event" 
                 Width="140" 
                 Height="36" 
                 Visibility="Visible" 
-                Background="MediumSpringGreen"
+                Background="MediumPurple"
                 Margin="0 30 0 0"
                 Foreground="White"
                 />
-    </StackPanel>
+    </Grid>
 
-    <StackPanel Name="AddNewWeddingPanel" Visibility="Collapsed" Width="400" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="50 0">
-      <Label Content="Add new wedding" FontSize="24" Foreground="White"/>
+    <Grid Name="AddNewWeddingGrid" Visibility="Collapsed" MaxHeight="500" Grid.Column="1" Grid.Row="0" Margin="20 0 20 0">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="5*"/>
+        <RowDefinition Height="*"/>
+      </Grid.RowDefinitions>
+      <Label Content="Add new wedding" FontSize="24" Foreground="White" Width="300" Margin="40 0 0 0"/>
+      <Border BorderBrush="White" BorderThickness="2" Grid.Row="1" >
 
-      <Label Content="Date" FontSize="16" Foreground="White"/>
-      <TextBox Name="WeddingDateBox" Background="#FFFFFF" FontSize="16"/>
+        <ScrollViewer VerticalScrollBarVisibility="Visible" FlowDirection="LeftToRight">
+          <StackPanel FlowDirection="LeftToRight" Margin="20 0 20 20">
 
-      <Label Content="Bride's First Name" FontSize="16" Foreground="White"/>
-      <TextBox Name="WeddingBridesFirstNameBox" Background="#FFFFFF" FontSize="16"/>
+            <Label Content="Date" FontSize="16" Foreground="White"/>
+            <TextBox Name="WeddingDateBox" Background="#FFFFFF" FontSize="16"/>
 
-      <Label Content="Bride's Last Name" FontSize="16" Foreground="White"/>
-      <TextBox Name="WeddingBridesLastNameBox" Background="#FFFFFF" FontSize="16"/>
+            <Label Content="Bride's First Name" FontSize="16" Foreground="White"/>
+            <TextBox Name="WeddingBridesFirstNameBox" Background="#FFFFFF" FontSize="16"/>
 
-      <Label Content="Bride's Mother's First Name" FontSize="16" Foreground="White"/>
-      <TextBox Name="WeddingBridesMothersFirstNameBox" Background="#FFFFFF" FontSize="16"/>
+            <Label Content="Bride's Last Name" FontSize="16" Foreground="White"/>
+            <TextBox Name="WeddingBridesLastNameBox" Background="#FFFFFF" FontSize="16"/>
 
-      <Label Content="Bride's Mother's Last Name" FontSize="16" Foreground="White"/>
-      <TextBox Name="WeddingBridesMothersLastNameBox" Background="#FFFFFF" FontSize="16"/>
+            <Label Content="Bride's Mother's First Name" FontSize="16" Foreground="White"/>
+            <TextBox Name="WeddingBridesMothersFirstNameBox" Background="#FFFFFF" FontSize="16"/>
 
-      <Label Content="Bride's Father's First Name" FontSize="16" Foreground="White"/>
-      <TextBox Name="WeddingBridesFathersFirstNameBox" Background="#FFFFFF" FontSize="16"/>
+            <Label Content="Bride's Mother's Last Name" FontSize="16" Foreground="White"/>
+            <TextBox Name="WeddingBridesMothersLastNameBox" Background="#FFFFFF" FontSize="16"/>
 
-      <Label Content="Bride's Father's Last Name" FontSize="16" Foreground="White"/>
-      <TextBox Name="WeddingBridesFathersLastNameBox" Background="#FFFFFF" FontSize="16"/>
-      <!--a-->
-      <!--<Label Content="Groom's First Name" FontSize="16" Foreground="White"/>
-      <TextBox Name="WeddingGroomsFirstNameBox" Background="#FFFFFF" FontSize="16"/>
+            <Label Content="Bride's Father's First Name" FontSize="16" Foreground="White"/>
+            <TextBox Name="WeddingBridesFathersFirstNameBox" Background="#FFFFFF" FontSize="16"/>
 
-      <Label Content="Groom's Last Name" FontSize="16" Foreground="White"/>
-      <TextBox Name="WeddingGroomsLastNameBox" Background="#FFFFFF" FontSize="16"/>
+            <Label Content="Bride's Father's Last Name" FontSize="16" Foreground="White"/>
+            <TextBox Name="WeddingBridesFathersLastNameBox" Background="#FFFFFF" FontSize="16"/>
 
-      <Label Content="Groom's Mother's First Name" FontSize="16" Foreground="White"/>
-      <TextBox Name="WeddingGroomsMothersFirstNameBox" Background="#FFFFFF" FontSize="16"/>
+            <Label Content="Groom's First Name" FontSize="16" Foreground="White"/>
+            <TextBox Name="WeddingGroomsFirstNameBox" Background="#FFFFFF" FontSize="16"/>
 
-      <Label Content="Groom's Mother's Last Name" FontSize="16" Foreground="White"/>
-      <TextBox Name="WeddingGroomsMothersLastNameBox" Background="#FFFFFF" FontSize="16"/>
+            <Label Content="Groom's Last Name" FontSize="16" Foreground="White"/>
+            <TextBox Name="WeddingGroomsLastNameBox" Background="#FFFFFF" FontSize="16"/>
 
-      <Label Content="Groom's Father's First Name" FontSize="16" Foreground="White"/>
-      <TextBox Name="WeddingGroomsFathersFirstNameBox" Background="#FFFFFF" FontSize="16"/>
+            <Label Content="Groom's Mother's First Name" FontSize="16" Foreground="White"/>
+            <TextBox Name="WeddingGroomsMothersFirstNameBox" Background="#FFFFFF" FontSize="16"/>
 
-      <Label Content="Groom's Father's Last Name" FontSize="16" Foreground="White"/>
-      <TextBox Name="WeddingGroomsFathersLastNameBox" Background="#FFFFFF" FontSize="16"/>-->
+            <Label Content="Groom's Mother's Last Name" FontSize="16" Foreground="White"/>
+            <TextBox Name="WeddingGroomsMothersLastNameBox" Background="#FFFFFF" FontSize="16"/>
 
-      <Button 
-                x:Name="AddWeddingConfirmButton"
-                Click="AddWeddingConfirmButton_Click"
-                Content="Add wedding event" 
-                Width="140" 
-                Height="36" 
-                Visibility="Visible" 
-                Background="MediumSpringGreen"
-                Margin="0 30 0 0"
-                Foreground="White"
-                />
-    </StackPanel>
+            <Label Content="Groom's Father's First Name" FontSize="16" Foreground="White"/>
+            <TextBox Name="WeddingGroomsFathersFirstNameBox" Background="#FFFFFF" FontSize="16"/>
 
-    <StackPanel Name="AddNewDeathPanel" Visibility="Collapsed" Width="400" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="50 0">
-      <Label Content="Add new death" FontSize="24" Foreground="White"/>
+            <Label Content="Groom's Father's Last Name" FontSize="16" Foreground="White"/>
+            <TextBox Name="WeddingGroomsFathersLastNameBox" Background="#FFFFFF" FontSize="16"/>
 
-      <Label Content="First Name" FontSize="16" Foreground="White"/>
-      <TextBox Name="DeathFirstNameBox" Background="#FFFFFF" FontSize="16"/>
+            <Label Content="Comment" FontSize="16" Foreground="White"/>
+            <TextBox Name="WeddingCommentBox" Background="#FFFFFF" FontSize="16"/>
 
-      <Label Content="Last Name" FontSize="16" Foreground="White"/>
-      <TextBox Name="DeathLastNameBox" Background="#FFFFFF" FontSize="16"/>
+          </StackPanel>
+        </ScrollViewer >
+      </Border>
+      <Button Grid.Row="2"
+                  x:Name="AddWeddingConfirmButton"
+                  Click="AddWeddingConfirmButton_Click"
+                  Content="Add wedding event" 
+                  Width="140" 
+                  Height="36" 
+                  Visibility="Visible" 
+                  Background="MediumPurple"
+                  Foreground="White"
+                  HorizontalAlignment="Center"
+                  Margin="0 30 0 0"
+                  />  
+    </Grid>
 
-      <Label Content="Date" FontSize="16" Foreground="White"/>
-      <TextBox Name="DeathDateBox" Background="#FFFFFF" FontSize="16"/>
+    <Grid Name="AddNewDeathPanel" Visibility="Collapsed" MaxHeight="500" Grid.Column="1" Grid.Row="0" Margin="20 0 20 0">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="5*"/>
+        <RowDefinition Height="*"/>
+      </Grid.RowDefinitions>
+      <Label Content="Add new death" FontSize="24" Foreground="White" Width="300" Margin="40 0 0 0"/>
+      <Border BorderBrush="White" BorderThickness="2" Grid.Row="1" >
 
-      <Label Content="Comment" FontSize="16" Foreground="White"/>
-      <TextBox Name="DeathCommentBox" Background="#FFFFFF" FontSize="16"/>
+        <ScrollViewer VerticalScrollBarVisibility="Visible" FlowDirection="LeftToRight">
+          <StackPanel FlowDirection="LeftToRight" Margin="20 0 20 20">
 
-      <Button 
+            <Label Content="First Name" FontSize="16" Foreground="White"/>
+            <TextBox Name="DeathFirstNameBox" Background="#FFFFFF" FontSize="16"/>
+
+            <Label Content="Last Name" FontSize="16" Foreground="White"/>
+            <TextBox Name="DeathLastNameBox" Background="#FFFFFF" FontSize="16"/>
+
+            <Label Content="Date" FontSize="16" Foreground="White"/>
+            <TextBox Name="DeathDateBox" Background="#FFFFFF" FontSize="16"/>
+
+            <Label Content="Comment" FontSize="16" Foreground="White"/>
+            <TextBox Name="DeathCommentBox" Background="#FFFFFF" FontSize="16"/>
+
+
+          </StackPanel>
+        </ScrollViewer>
+      </Border>
+      <Button Grid.Row="2"
                 x:Name="AddDeathConfirmButton"
                 Click="AddDeathConfirmButton_Click"
                 Content="Add death" 
                 Width="140" 
                 Height="36" 
                 Visibility="Visible" 
-                Background="MediumSpringGreen"
+                Background="MediumPurple"
                 Margin="0 30 0 0"
                 Foreground="White"
                 />
-    </StackPanel>
+    </Grid>
 
     <Grid Grid.Row="2" Margin="0 25" Name="PlacesButtonsGrid">
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="*" />
-        <ColumnDefinition Width="auto" />
-        <ColumnDefinition Width="auto" />
-        <ColumnDefinition Width="auto" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
       </Grid.ColumnDefinitions>
       <Grid.RowDefinitions>
         <RowDefinition Height="auto"/>
       </Grid.RowDefinitions>
 
-      <Button Visibility="Hidden" Grid.Column="0" x:Name="RemovePlaceButton" Content="Remove place" Click="RemovePlaceButton_Click" Width="142" HorizontalAlignment="Left" Height="36" Background="IndianRed" Foreground="White"/>
-      <Button Visibility="Hidden" Grid.Column="1" x:Name="AddBirthButton" Content="Births Book" Click="AddBirthButton_Click" Width="142" HorizontalAlignment="Right" Height="36" Background="DeepSkyBlue" Foreground="White"/>
-      <Button Visibility="Hidden" Grid.Column="2" x:Name="AddWeddingButton" Content="Weddings Book" Click="AddWeddingButton_Click" Width="142" HorizontalAlignment="Right" Height="36" Margin="25 0 0 0" Background="MediumSpringGreen" Foreground="White"/>
-      <Button Visibility="Hidden" Grid.Column="3" x:Name="AddDeathButton" Content="Deaths Book" Click="AddDeathButton_Click" Width="142" HorizontalAlignment="Right" Height="36" Margin="25 0 0 0" Background="MediumSpringGreen" Foreground="White"/>
+      <Button Visibility="Hidden" Grid.Column="0" x:Name="RemovePlaceButton" Content="Remove place" Click="RemovePlaceButton_Click" Width="142" Height="36" Background="LightCoral" Foreground="White"/>
+      <Button Visibility="Hidden" Grid.Column="1" x:Name="AddBirthButton" Content="Births Book" Click="AddBirthButton_Click" Width="142" Height="36" Background="Gray" Foreground="White"/>
+      <Button Visibility="Hidden" Grid.Column="2" x:Name="AddWeddingButton" Content="Weddings Book" Click="AddWeddingButton_Click" Width="142" Height="36" Background="Gray" Foreground="White"/>
+      <Button Visibility="Hidden" Grid.Column="3" x:Name="AddDeathButton" Content="Deaths Book" Click="AddDeathButton_Click" Width="142" Height="36" Background="Gray" Foreground="White"/>
     </Grid>
 
     <Grid Grid.Row="2" Margin="0 25"  Name="BirthsBookButtonsGrid" Visibility="Collapsed">
@@ -415,8 +504,8 @@
         <RowDefinition Height="auto"/>
       </Grid.RowDefinitions>
 
-      <Button Grid.Column="0" x:Name="BackToPlacesButtonBirthsBook" Click="BackToPlacesButton_Click" Content="Back" Width="142" HorizontalAlignment="Left" Height="36"/>
-      <Button Visibility="Collapsed" Grid.Column="1" x:Name="RemoveBirthButton" Content="Remove birth" Click="RemoveBirthButton_Click" Width="142" HorizontalAlignment="Left" Height="36" Background="IndianRed" Foreground="White"/>
+      <Button Grid.Column="0" x:Name="BackToPlacesButtonBirthsBook" Click="BackToPlacesButton_Click" Content="Back" Width="142" HorizontalAlignment="Left" Height="36" Background="Gray" Foreground="White"/>
+      <Button Visibility="Collapsed" Grid.Column="1" x:Name="RemoveBirthButton" Content="Remove birth" Click="RemoveBirthButton_Click" Width="142" HorizontalAlignment="Left" Height="36" Background="LightCoral" Foreground="White"/>
     </Grid>
 
     <Grid Grid.Row="2" Margin="0 25"  Name="WeddingsBookButtonsGrid" Visibility="Collapsed">
@@ -428,8 +517,8 @@
         <RowDefinition Height="auto"/>
       </Grid.RowDefinitions>
 
-      <Button Grid.Column="0" x:Name="BackToPlacesButtonWeddingsBook" Click="BackToPlacesButton_Click" Content="Back" Width="142" HorizontalAlignment="Left" Height="36"/>
-      <Button Visibility="Collapsed" Grid.Column="1" x:Name="RemoveWeddingButton" Content="Remove wedding" Click="RemoveWeddingButton_Click" Width="142" HorizontalAlignment="Left" Height="36" Background="IndianRed" Foreground="White"/>
+      <Button Grid.Column="0" x:Name="BackToPlacesButtonWeddingsBook" Click="BackToPlacesButton_Click" Content="Back" Width="142" HorizontalAlignment="Left" Height="36" Background="Gray" Foreground="White"/>
+      <Button Visibility="Collapsed" Grid.Column="1" x:Name="RemoveWeddingButton" Content="Remove wedding" Click="RemoveWeddingButton_Click" Width="142" HorizontalAlignment="Left" Height="36" Background="LightCoral" Foreground="White"/>
     </Grid>
 
     <Grid Grid.Row="2" Margin="0 25"  Name="DeathsBookButtonsGrid" Visibility="Collapsed">
@@ -441,8 +530,8 @@
         <RowDefinition Height="auto"/>
       </Grid.RowDefinitions>
 
-      <Button Grid.Column="0" x:Name="BackToPlacesButtonDeathsBook" Click="BackToPlacesButton_Click" Content="Back" Width="142" HorizontalAlignment="Left" Height="36"/>
-      <Button Visibility="Collapsed" Grid.Column="1" x:Name="RemoveDeathButton" Content="Remove death" Click="RemoveDeathButton_Click" Width="142" HorizontalAlignment="Left" Height="36" Background="IndianRed" Foreground="White"/>
+      <Button Grid.Column="0" x:Name="BackToPlacesButtonDeathsBook" Click="BackToPlacesButton_Click" Content="Back" Width="142" HorizontalAlignment="Left" Height="36" Background="Gray" Foreground="White"/>
+      <Button Visibility="Collapsed" Grid.Column="1" x:Name="RemoveDeathButton" Content="Remove death" Click="RemoveDeathButton_Click" Width="142" HorizontalAlignment="Left" Height="36" Background="LightCoral" Foreground="White"/>
     </Grid>
   </Grid>
 </Window>

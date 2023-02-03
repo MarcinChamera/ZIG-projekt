@@ -16,7 +16,7 @@ namespace ZIG_projekt_backend.Utils
             List<Birth> listOfBirths = new List<Birth>();
             // takie ma tu byc:           var path = @"C:\Users\Dariusz\Source\Repos\ZIG-projekt\ZIG-projekt-backend\Utils\"+placeId+"\Birth.txt";
 
-            var path = @"C:\Users\Dariusz\Source\Repos\ZIG-projekt\ZIG-projekt-backend\Utils\Warszawa\Birth.txt";
+            var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + @"\ZIG-projekt-backend\Utils\Warszawa\Birth.txt";
 
             string[] lines = File.ReadAllLines(path, Encoding.UTF8);
             List<String> record = new List<string>();
@@ -32,9 +32,14 @@ namespace ZIG_projekt_backend.Utils
         public bool RemoveBirth(string placeId)
         {
             // takie ma tu byc:           var path = @"C:\Users\Dariusz\Source\Repos\ZIG-projekt\ZIG-projekt-backend\Utils\"+placeId+"\Birth.txt";
-            var path = @"C:\Users\Dariusz\Source\Repos\ZIG-projekt\ZIG-projekt-backend\Utils\Krakow\Birth.txt";
+            var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + @"\ZIG-projekt-backend\Utils\Krakow\Birth.txt";
             //File.Delete(path);
             return false;
+        }
+
+        public void ExportBirthsBook(string placeId)
+        {
+
         }
     }
 }

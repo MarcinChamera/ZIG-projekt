@@ -17,9 +17,10 @@ namespace ZIG_projekt_backend.Utils
         /// <returns><c>true</c> if destination added, <c>false</c> otherwise.</returns>
         public bool AddNewPlace(string name, string description)
         {
-            var path = @"C:\Users\Dariusz\Source\Repos\ZIG-projekt\ZIG-projekt-backend\Utils\places.txt";
+            var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + @"\ZIG-projekt-backend\Utils\places.txt";
+            //File.AppendAllLines(path, new List<string>() { '\n' + name });
             File.WriteAllText(path, name);
-            Directory.CreateDirectory(@"C:\Users\Dariusz\Source\Repos\ZIG-projekt\ZIG-projekt-backend\Utils\"+name);
+            Directory.CreateDirectory(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + @"\ZIG -projekt-backend\Utils\" + name);
             return true;
         }
 
@@ -40,7 +41,7 @@ namespace ZIG_projekt_backend.Utils
         public List<Place> GetAllPlaces()
         {
             List <Place> listOfPlaces = new List<Place>();
-            var path = @"C:\Users\Dariusz\Source\Repos\ZIG-projekt\ZIG-projekt-backend\Utils\places.txt";
+            var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + @"\ZIG-projekt-backend\Utils\places.txt";
             string[] lines = File.ReadAllLines(path, Encoding.UTF8);
             foreach (string line in lines)
             {
@@ -53,6 +54,11 @@ namespace ZIG_projekt_backend.Utils
         public bool RemovePlace(string placeId)
         {
             return false;
+        }
+
+        public void ExportPlaces()
+        {
+
         }
     }
 
