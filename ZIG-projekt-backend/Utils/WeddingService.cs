@@ -21,9 +21,39 @@ namespace ZIG_projekt_backend.Utils
             foreach (string line in lines)
             {
                 string[] words = line.Split(',');
-                listOfWedding.Add(new Wedding() { GroomsFirstName = words[0], GroomsLastName = words[1], BridesFirstName = words[2], BridesLastName = words[3] });
+                listOfWedding.Add(new Wedding() { GroomsFirstName = words[0], GroomsLastName = words[1], BridesFirstName = words[2], BridesLastName = words[3], 
+                BridesFathersFirstName = words[4], BridesFathersLastName= words[5], BridesMothersFirstName= words[6],BridesMothersLastName= words[7], Comment= words[8],
+                Date = words[9], GroomsFathersFirstName= words[10], GroomsFathersLastName = words[11], GroomsMothersFirstName= words[12], GroomsMothersLastName= words[13]
+                });
             }
             return listOfWedding;
+        }
+
+        public bool AddWedding(string[] record, string placeId)
+        {
+
+            var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + @"\ZIG-projekt-backend\Utils\Warszawa\Wedding.txt";
+            string newRecord = record[0] + "," + record[1] + "," + record[2] + "," + record[3];
+
+            if (File.Exists(path))
+            {
+                string[] lines = File.ReadAllLines(path, Encoding.UTF8);
+                List<string> newLines = new List<string>();
+                newLines.Add(newRecord);
+                foreach (string line in lines)
+                {
+                    newLines.Add(line);
+                }
+                File.WriteAllLines(path, newLines);
+            }
+            else
+            {
+                StreamWriter sw = File.AppendText(path);
+                sw.WriteLine(newRecord);
+
+            }
+
+            return true;
         }
 
         public bool RemoveWedding(string placeId)

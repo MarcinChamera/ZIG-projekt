@@ -153,6 +153,7 @@ namespace ZIG_projekt
                 bool added = this.PlaceService.AddNewPlace(this.PlaceNameBox.Text, this.PlaceDescriptionBox.Text);
                 if (added)
                 {
+                    this.PlaceService.AddPlace(this.PlaceNameBox.Text);
                     this.PlaceNameBox.Text = "";
                     this.PlaceDescriptionBox.Text = "";
                     this.UpdatePlaces();

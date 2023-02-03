@@ -18,9 +18,26 @@ namespace ZIG_projekt_backend.Utils
             foreach (string line in lines)
             {
                 string[] words = line.Split(',');
-                listOfDeath.Add(new Death() { FirstName = words[0], LastName = words[1] });
+                listOfDeath.Add(new Death() {FirstName = words[0], LastName = words[1], Date = words[2], Comment = words[3]});
             }
             return listOfDeath;
+        }
+
+        public bool AddDeath(string[] record)
+        {
+
+            var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + @"\ZIG-projekt-backend\Utils\Warszawa\Death.txt";
+
+            string newRecord = record[0]+","+ record[1] + ","+record[2] + ","+record[3];
+            string[] lines = File.ReadAllLines(path, Encoding.UTF8);
+            List<string> newLines = new List<string>();
+            newLines.Add(newRecord);
+            foreach (string line in lines)
+            {
+                    newLines.Add(line);
+            }
+            File.WriteAllLines(path, newLines);
+            return true;
         }
 
 
@@ -40,9 +57,9 @@ namespace ZIG_projekt_backend.Utils
                 counter++;
             }
             File.WriteAllLines(path, newLines);
-            return false;
+            return true;
         }
-
+       
         public void ExportDeathsBook(string placeId)
         {
             var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + @"\ZIG-projekt-backend\Utils\Warszawa\Death.txt";

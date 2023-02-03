@@ -26,6 +26,22 @@ namespace ZIG_projekt_backend.Utils
             }
             return listOfBirths;
         }
+        public bool AddBirth(string[] record, string placeId)
+        {
+
+            var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + $@"\ZIG-projekt-backend\Utils\{placeId}\Birth.txt";
+
+            string newRecord = record[0] + "," + record[1] + "," + record[2] + "," + record[3];
+            string[] lines = File.ReadAllLines(path, Encoding.UTF8);
+            List<string> newLines = new List<string>();
+            newLines.Add(newRecord);
+            foreach (string line in lines)
+            {
+                newLines.Add(line);
+            }
+            File.WriteAllLines(path, newLines);
+            return false;
+        }
 
         public bool RemoveBirth(string placeId)
         {
@@ -43,7 +59,7 @@ namespace ZIG_projekt_backend.Utils
                 counter++;
             }
             File.WriteAllLines(path, newLines);
-            return false;
+            return true;
         }
 
         public void ExportBirthsBook(string placeId)

@@ -51,6 +51,21 @@ namespace ZIG_projekt_backend.Utils
             return listOfPlaces;
         }
 
+        public bool AddPlace(string placeName)
+        {
+            var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + $@"\ZIG-projekt-backend\Utils\places.txt";
+
+            string[] lines = File.ReadAllLines(path, Encoding.UTF8);
+            List<string> newLines = new List<string>();
+            newLines.Add(placeName);
+            foreach (string line in lines)
+            {
+                   newLines.Add(line); 
+            }
+            File.WriteAllLines(path, newLines);
+            return false;
+        }
+
         public bool RemovePlace(string placeId)
         {
             return false;
