@@ -1,2 +1,0 @@
-Dariusz,Dyrga,"01.01.1980","23:59","Joachim",Józefina
-Dariusz2,Dyrga2,"01.01.1980","23:59","Joachim",Józefina

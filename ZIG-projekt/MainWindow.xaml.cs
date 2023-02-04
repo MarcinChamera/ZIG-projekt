@@ -89,7 +89,7 @@ namespace ZIG_projekt
                 this.AddWeddingButton.Visibility= Visibility.Collapsed;
                 this.AddDeathButton.Visibility= Visibility.Collapsed;
 
-                this.SelectedPlace = null;
+                //this.SelectedPlace = null;
             }
         }
 
@@ -150,10 +150,9 @@ namespace ZIG_projekt
         {
             if (this.PlaceNameBox.Text.Length > 0 && this.PlaceDescriptionBox.Text.Length > 0)
             {
-                bool added = this.PlaceService.AddNewPlace(this.PlaceNameBox.Text, this.PlaceDescriptionBox.Text);
+                bool added = this.PlaceService.AddPlace(new string[] { this.PlaceNameBox.Text, this.PlaceDescriptionBox.Text });
                 if (added)
                 {
-                    this.PlaceService.AddPlace(this.PlaceNameBox.Text);
                     this.PlaceNameBox.Text = "";
                     this.PlaceDescriptionBox.Text = "";
                     this.UpdatePlaces();
@@ -175,7 +174,7 @@ namespace ZIG_projekt
         {
             if (this.SelectedPlace != null)
             {
-                this.BirthsBook = this.BirthsBookService.GetBirthsBookForPlace(this.SelectedPlace.PlaceId);
+                this.BirthsBook = this.BirthsBookService.GetBirthsBookForPlace(this.SelectedPlace.Name);
                 this.BirthsList.ItemsSource = this.BirthsBook;
             }
         }
@@ -201,7 +200,7 @@ namespace ZIG_projekt
         {
             if (this.SelectedPlace != null)
             {
-                this.WeddingsBook = this.WeddingsBookService.GetWeddingsBookForPlace(this.SelectedPlace.PlaceId);
+                this.WeddingsBook = this.WeddingsBookService.GetWeddingsBookForPlace(this.SelectedPlace.Name);
                 this.WeddingsList.ItemsSource = this.WeddingsBook;
             }
         }
@@ -227,7 +226,7 @@ namespace ZIG_projekt
         {
             if (this.SelectedPlace != null)
             {
-                this.DeathsBook = this.DeathsBookService.GetDeathsBookForPlace(this.SelectedPlace.PlaceId);
+                this.DeathsBook = this.DeathsBookService.GetDeathsBookForPlace(this.SelectedPlace.Name);
                 this.DeathsList.ItemsSource = this.DeathsBook;
             }
         }
@@ -280,7 +279,7 @@ namespace ZIG_projekt
         {
             if (this.SelectedPlace != null)
             {
-                var result = this.PlaceService.RemovePlace(PlacesList.Items.IndexOf(this.SelectedPlace).ToString());
+                var result = this.PlaceService.RemovePlace(this.SelectedPlace.Name);
 
                 if (result)
                 {
@@ -296,7 +295,7 @@ namespace ZIG_projekt
         {
             if (this.SelectedBirth != null)
             {
-                var result = this.BirthsBookService.RemoveBirth(BirthsList.Items.IndexOf(this.SelectedBirth).ToString());
+                var result = this.BirthsBookService.RemoveBirth(PlacesList.Items.IndexOf(this.SelectedPlace), this.SelectedPlace.Name);
 
                 if (result)
                 {
@@ -309,7 +308,7 @@ namespace ZIG_projekt
         {
             if (this.SelectedWedding != null)
             {
-                var result = this.WeddingsBookService.RemoveWedding(WeddingsList.Items.IndexOf(this.SelectedWedding).ToString());
+                var result = this.WeddingsBookService.RemoveWedding(PlacesList.Items.IndexOf(this.SelectedPlace), this.SelectedPlace.Name);
 
                 if (result)
                 {
@@ -322,7 +321,7 @@ namespace ZIG_projekt
         {
             if (this.SelectedDeath != null)
             {
-                var result = this.DeathsBookService.RemoveDeath(DeathsList.Items.IndexOf(this.SelectedDeath).ToString());
+                var result = this.DeathsBookService.RemoveDeath(PlacesList.Items.IndexOf(this.SelectedPlace), this.SelectedPlace.Name);
 
                 if (result)
                 {
@@ -335,17 +334,23 @@ namespace ZIG_projekt
         {
             if (this.BirthDateBox.Text.Length > 0 && this.BirthFirstNameBox.Text.Length > 0 && this.BirthLastNameBox.Text.Length > 0 && this.BirthMothersNameBox.Text.Length > 0 && this.BirthFathersNameBox.Text.Length > 0)
             {
-                //bool added = this.BirthsBookService.AddNewBirth(this.BirthDateBox.Text, this.BirthFirstNameBox.Text, this.BirthLastNameBox.Text, this.BirthMothersNameBox.Text, this.BirthFathersNameBox.Text, this.BirthCommentBox.Text);
-                //if (added)
-                //{
-                //    this.BirthDateBox.Text = "";
-                //    this.BirthFirstNameBox.Text = "";
-                //    this.BirthLastNameBox.Text = "";
-                //    this.BirthMothersNameBox.Text = "";
-                //    this.BirthFathersNameBox.Text = "";
-                //    this.BirthCommentBox.Text = "";
-                //    this.UpdatePlaces();
-                //}
+                bool added = this.BirthsBookService.AddBirth(new string[] { this.BirthDateBox.Text, this.BirthTimeBox.Text, this.BirthFirstNameBox.Text, this.BirthLastNameBox.Text, this.BirthMothersNameBox.Text, this.BirthFathersNameBox.Text,
+                    string.IsNullOrWhiteSpace(this.BirthCommentBox.Text) ? "-" : this.BirthCommentBox.Text }, this.SelectedPlace.Name);
+                if (added)
+                {
+                    this.BirthDateBox.Text = "";
+                    this.BirthTimeBox.Text = "";
+                    this.BirthFirstNameBox.Text = "";
+                    this.BirthLastNameBox.Text = "";
+                    this.BirthMothersNameBox.Text = "";
+                    this.BirthFathersNameBox.Text = "";
+                    this.BirthCommentBox.Text = "";
+                    this.UpdateBirthsBook();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Only Comment textfield can be empty. Try again.");
             }
         }
 
@@ -355,41 +360,45 @@ namespace ZIG_projekt
                 this.WeddingBridesMothersLastNameBox.Text.Length > 0 && this.WeddingBridesFathersFirstNameBox.Text.Length > 0 && this.WeddingBridesFathersLastNameBox.Text.Length > 0 &&
                 this.WeddingGroomsFirstNameBox.Text.Length > 0 && this.WeddingGroomsLastNameBox.Text.Length > 0 && this.WeddingGroomsMothersFirstNameBox.Text.Length > 0 &&
                 this.WeddingGroomsMothersLastNameBox.Text.Length > 0 && this.WeddingGroomsFathersFirstNameBox.Text.Length > 0 && this.WeddingGroomsFathersLastNameBox.Text.Length > 0)
-
             {
-                //bool added = this.WeddingsBookService.AddNewWedding(
-                //    this.WeddingDateBox.Text,
-                //    this.WeddingBridesFirstNameBox.Text,
-                //    this.WeddingBridesLastNameBox.Text,
-                //    this.WeddingBridesMothersFirstNameBox.Text,
-                //    this.WeddingBridesMothersLastNameBox.Text,
-                //    this.WeddingBridesFathersFirstNameBox.Text,
-                //    this.WeddingBridesFathersLastNameBox.Text,
-                //    this.WeddingGroomsFirstNameBox.Text,
-                //    this.WeddingGroomsLastNameBox.Text,
-                //    this.WeddingGroomsMothersFirstNameBox.Text,
-                //    this.WeddingGroomsMothersLastNameBox.Text,
-                //    this.WeddingGroomsFathersFirstNameBox.Text,
-                //    this.WeddingGroomsFathersLastNameBox.Text,
-                //    this.WeddingCommentBox.Text);
-                //if (added)
-                //{
-                //    this.WeddingDateBox.Text = "";
-                //    this.WeddingBridesFirstNameBox.Text = "";
-                //    this.WeddingBridesLastNameBox.Text = "";
-                //    this.WeddingBridesMothersFirstNameBox.Text = "";
-                //    this.WeddingBridesMothersLastNameBox.Text = "";
-                //    this.WeddingBridesFathersFirstNameBox.Text = "";
-                //    this.WeddingBridesFathersLastNameBox.Text = "";
-                //    this.WeddingGroomsFirstNameBox.Text = "";
-                //    this.WeddingGroomsLastNameBox.Text = "";
-                //    this.WeddingGroomsMothersFirstNameBox.Text = "";
-                //    this.WeddingGroomsMothersLastNameBox.Text = "";
-                //    this.WeddingGroomsFathersFirstNameBox.Text = "";
-                //    this.WeddingGroomsFathersLastNameBox.Text = "";
-                //    this.WeddingCommentBox.Text = "";
-                //    this.UpdatePlaces();
-                //}
+                bool added = this.WeddingsBookService.AddWedding(new string[] {
+                    this.WeddingDateBox.Text,
+                    this.WeddingBridesFirstNameBox.Text,
+                    this.WeddingBridesLastNameBox.Text,
+                    this.WeddingBridesMothersFirstNameBox.Text,
+                    this.WeddingBridesMothersLastNameBox.Text,
+                    this.WeddingBridesFathersFirstNameBox.Text,
+                    this.WeddingBridesFathersLastNameBox.Text,
+                    this.WeddingGroomsFirstNameBox.Text,
+                    this.WeddingGroomsLastNameBox.Text,
+                    this.WeddingGroomsMothersFirstNameBox.Text,
+                    this.WeddingGroomsMothersLastNameBox.Text,
+                    this.WeddingGroomsFathersFirstNameBox.Text,
+                    this.WeddingGroomsFathersLastNameBox.Text,
+                    string.IsNullOrWhiteSpace(this.WeddingCommentBox.Text) ? "-" : this.WeddingCommentBox.Text
+                    }, this.SelectedPlace.Name);
+                if (added)
+                {
+                    this.WeddingDateBox.Text = "";
+                    this.WeddingBridesFirstNameBox.Text = "";
+                    this.WeddingBridesLastNameBox.Text = "";
+                    this.WeddingBridesMothersFirstNameBox.Text = "";
+                    this.WeddingBridesMothersLastNameBox.Text = "";
+                    this.WeddingBridesFathersFirstNameBox.Text = "";
+                    this.WeddingBridesFathersLastNameBox.Text = "";
+                    this.WeddingGroomsFirstNameBox.Text = "";
+                    this.WeddingGroomsLastNameBox.Text = "";
+                    this.WeddingGroomsMothersFirstNameBox.Text = "";
+                    this.WeddingGroomsMothersLastNameBox.Text = "";
+                    this.WeddingGroomsFathersFirstNameBox.Text = "";
+                    this.WeddingGroomsFathersLastNameBox.Text = "";
+                    this.WeddingCommentBox.Text = "";
+                    this.UpdateWeddingsBook();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Only Comment textfield can be empty. Try again.");
             }
         }
 
@@ -397,38 +406,57 @@ namespace ZIG_projekt
         {
             if (this.DeathDateBox.Text.Length > 0 && this.DeathFirstNameBox.Text.Length > 0 && this.DeathLastNameBox.Text.Length > 0)
             {
-                //bool added = this.BirthsBookService.AddNewBirth(this.BirthDateBox.Text, this.BirthFirstNameBox.Text, this.BirthLastNameBox.Text, this.BirthMothersNameBox.Text, this.BirthFathersNameBox.Text, this.BirthCommentBox.Text);
-                //if (added)
-                //{
-                //    this.BirthDateBox.Text = "";
-                //    this.BirthFirstNameBox.Text = "";
-                //    this.BirthLastNameBox.Text = "";
-                //    this.BirthMothersNameBox.Text = "";
-                //    this.BirthFathersNameBox.Text = "";
-                //    this.BirthCommentBox.Text = "";
-                //    this.UpdatePlaces();
-                //}
+                bool added = this.DeathsBookService.AddDeath(new string[] { this.DeathDateBox.Text, this.DeathFirstNameBox.Text, this.DeathLastNameBox.Text,
+                    string.IsNullOrWhiteSpace(this.DeathCommentBox.Text) ? "-" : this.DeathCommentBox.Text }, this.SelectedPlace.Name);
+                if (added)
+                {
+                    this.DeathDateBox.Text = "";
+                    this.DeathFirstNameBox.Text = "";
+                    this.DeathLastNameBox.Text = "";
+                    this.DeathCommentBox.Text = "";
+                    this.UpdateDeathsBook();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Only Comment textfield can be empty. Try again.");
             }
         }
 
         public void ExportPlacesButton_Click(object sender, RoutedEventArgs e)
         {
-            this.PlaceService.ExportPlaces();
+            bool exported = this.PlaceService.ExportPlaces();
+            if (exported)
+            {
+                MessageBox.Show("Successfull export!");
+            }
         }
 
         public void ExportBirthsBookButton_Click(object sender, RoutedEventArgs e)
         {
-            this.BirthsBookService.ExportBirthsBook(PlacesList.Items.IndexOf(this.SelectedPlace).ToString());
+            bool exported = this.BirthsBookService.ExportBirthsBook(this.SelectedPlace.Name);
+            if (exported)
+            {
+                MessageBox.Show("Successfull export!");
+            }
         }
 
         public void ExportWeddingsBookButton_Click(object sender, RoutedEventArgs e)
         {
-            this.WeddingsBookService.ExportWeddingsBook(PlacesList.Items.IndexOf(this.SelectedPlace).ToString());
+            bool exported = this.WeddingsBookService.ExportWeddingsBook(this.SelectedPlace.Name);
+            if (exported)
+            {
+                MessageBox.Show("Successfull export!");
+            }
         }
 
         public void ExportDeathsBookButton_Click(object sender, RoutedEventArgs e)
         {
-            this.DeathsBookService.ExportDeathsBook(PlacesList.Items.IndexOf(this.SelectedPlace).ToString());
+            bool exported = this.DeathsBookService.ExportDeathsBook(this.SelectedPlace.Name);
+            if (exported)
+            {
+                MessageBox.Show("Successfull export!");
+            }
         }
 
         /// <summary>

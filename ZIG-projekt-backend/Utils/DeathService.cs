@@ -8,25 +8,25 @@ namespace ZIG_projekt_backend.Utils
 {
     public class DeathService
     {
-        public List<Death> GetDeathsBookForPlace(string placeId)
+        public List<Death> GetDeathsBookForPlace(string placeName)
         {
             List<Death> listOfDeath = new List<Death>();
-            var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + @"\ZIG-projekt-backend\Utils\Warszawa\Death.txt";
+            var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + $@"\ZIG-projekt-backend\Utils\{placeName}\Death.txt";
 
             string[] lines = File.ReadAllLines(path, Encoding.UTF8);
             List<String> record = new List<string>();
             foreach (string line in lines)
             {
                 string[] words = line.Split(',');
-                listOfDeath.Add(new Death() {FirstName = words[0], LastName = words[1], Date = words[2], Comment = words[3]});
+                listOfDeath.Add(new Death() { Date = words[0], FirstName = words[1], LastName = words[2], Comment = words[3] });
             }
             return listOfDeath;
         }
 
-        public bool AddDeath(string[] record)
+        public bool AddDeath(string[] record, string placeName)
         {
 
-            var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + @"\ZIG-projekt-backend\Utils\Warszawa\Death.txt";
+            var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + $@"\ZIG-projekt-backend\Utils\{placeName}\Death.txt";
 
             string newRecord = record[0]+","+ record[1] + ","+record[2] + ","+record[3];
             string[] lines = File.ReadAllLines(path, Encoding.UTF8);
@@ -41,16 +41,16 @@ namespace ZIG_projekt_backend.Utils
         }
 
 
-        public bool RemoveDeath(string placeId)
+        public bool RemoveDeath(int placeId, string placeName)
         {
-            var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + @"\ZIG-projekt-backend\Utils\Warszawa\Death.txt";
+            var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + $@"\ZIG-projekt-backend\Utils\{placeName}\Death.txt";
 
             string[] lines = File.ReadAllLines(path, Encoding.UTF8);
             List<string> newLines = new List<string>();
             int counter = 0;
             foreach (string line in lines)
             {   
-                if(counter != Int32.Parse(placeId))
+                if(counter != placeId)
                 {
                     newLines.Add(line);
                 }
@@ -60,20 +60,22 @@ namespace ZIG_projekt_backend.Utils
             return true;
         }
        
-        public void ExportDeathsBook(string placeId)
+        public bool ExportDeathsBook(string placeName)
         {
-            var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + @"\ZIG-projekt-backend\Utils\Warszawa\Death.txt";
+            var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName +$@"\ZIG-projekt-backend\Utils\{placeName}\Death.txt";
             string[] lines = File.ReadAllLines(path, Encoding.UTF8);
             var csv = new StringBuilder();
 
             foreach (string line in lines)
             {
                 string[] words = line.Split(',');
-                var newLine = string.Format("{0},{1}", words[0], words[1]);
+                var newLine = string.Format("{0},{1},{2},{3}", words[0], words[1], words[2], words[3]);
                 csv.AppendLine(newLine);
             }
-            var pathCSV = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + @"\ZIG-projekt-backend\Utils\Warszawa\Death.csv";
+            var pathCSV = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + $@"\ZIG-projekt-backend\Utils\{placeName}\Death.csv";
             File.WriteAllText(pathCSV, csv.ToString());
+
+            return true;
         }
     }
 }
