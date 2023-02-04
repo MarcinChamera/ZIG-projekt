@@ -21,9 +21,13 @@ namespace ZIG_projekt_backend.Utils
             foreach (string line in lines)
             {
                 string[] words = line.Split(',');
-                listOfWedding.Add(new Wedding() { Date = words[0], BridesFirstName = words[1], BridesLastName = words[2], BridesMothersFirstName = words[3],
+                listOfWedding.Add(new Wedding() { 
+                    Date = words[0],
+                    BridesFirstName = words[1], 
+                    BridesLastName = words[2], 
+                    BridesMothersFirstName = words[3],
                     BridesMothersLastName = words[4], 
-                BridesFathersFirstName = words[5], BridesFathersLastName= words[6],
+                    BridesFathersFirstName = words[5], BridesFathersLastName= words[6],
                     GroomsFirstName = words[7],
                     GroomsLastName = words[8],
                     GroomsMothersFirstName = words[9],
@@ -85,7 +89,6 @@ namespace ZIG_projekt_backend.Utils
             var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + $@"\ZIG-projekt-backend\Utils\{placeName}\Wedding.txt";
             string[] lines = File.ReadAllLines(path, Encoding.UTF8);
 
-            //before your loop
             var csv = new StringBuilder();
 
             foreach (string line in lines)

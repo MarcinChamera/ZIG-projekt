@@ -10,7 +10,6 @@ namespace ZIG_projekt_backend.Utils
     public class PlaceService
     {
 
-
         /// <summary>
         /// Gets all destinations.
         /// </summary>
@@ -23,10 +22,13 @@ namespace ZIG_projekt_backend.Utils
             foreach (string line in lines)
             {
                 string[] words = line.Split(',');
-                listOfPlaces.Add(new Place() { Name = words[0] });
                 if (words.Count() == 2)
                 {
-                    listOfPlaces[0].Description = words[1];
+                    listOfPlaces.Add(new Place() { Name = words[0], Description = words[1] });
+                }
+                else
+                {
+                    listOfPlaces.Add(new Place() { Name = words[0] });
                 }
                 Console.WriteLine(line);
             }
@@ -54,7 +56,24 @@ namespace ZIG_projekt_backend.Utils
 
         public bool RemovePlace(string placeName)
         {
-            return false;
+            var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + $@"\ZIG-projekt-backend\Utils\places.txt";
+
+            string[] lines = File.ReadAllLines(path, Encoding.UTF8);
+            List<string> newLines = new List<string>();
+            foreach (string line in lines)
+            {
+                string[] words = line.Split(',');
+                if (words[0] != placeName)
+                {
+                    newLines.Add(line);
+                }
+            }
+            File.WriteAllLines(path, newLines);
+            File.Delete(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + $@"\ZIG-projekt-backend\Utils\{placeName}\Birth.txt");
+            File.Delete(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + $@"\ZIG-projekt-backend\Utils\{placeName}\Wedding.txt");
+            File.Delete(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + $@"\ZIG-projekt-backend\Utils\{placeName}\Death.txt");
+            Directory.Delete(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + $@"\ZIG-projekt-backend\Utils\{placeName}");
+            return true;
         }
 
         public bool ExportPlaces()

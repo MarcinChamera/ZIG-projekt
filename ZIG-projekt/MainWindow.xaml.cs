@@ -283,9 +283,6 @@ namespace ZIG_projekt
 
                 if (result)
                 {
-                    this.UpdateBirthsBook();
-                    this.UpdateWeddingsBook();
-                    this.UpdateDeathsBook();
                     this.UpdatePlaces();
                 }
             }

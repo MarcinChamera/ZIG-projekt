@@ -22,7 +22,7 @@ namespace ZIG_projekt_backend.Utils
             foreach (string line in lines)
             {
                 string[] words = line.Split(',');
-                listOfBirths.Add(new Birth() { FirstName = words[0], LastName = words[1], Date = words[2], Time = words[3], FathersName = words[4], MothersName = words[5], Comment = words[6] });
+                listOfBirths.Add(new Birth() { Date = words[0], Time = words[1], FirstName = words[2], LastName = words[3], MothersName = words[4], FathersName = words[5], Comment = words[6] });
             }
             return listOfBirths;
         }
