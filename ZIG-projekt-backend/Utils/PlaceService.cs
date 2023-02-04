@@ -76,7 +76,7 @@ namespace ZIG_projekt_backend.Utils
             return true;
         }
 
-        public bool ExportPlaces()
+        public bool ExportPlaces(string pathcsv)
         {
             var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + @"\ZIG-projekt-backend\Utils\places.txt";
             string[] lines = File.ReadAllLines(path, Encoding.UTF8);
@@ -90,8 +90,7 @@ namespace ZIG_projekt_backend.Utils
                 var newLine = words.Length == 1 ? string.Format("{0}", words[0]) : string.Format("{0},{1}", words[0], words[1]);
                 csv.AppendLine(newLine);
             }
-            var pathCSV = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + $@"\ZIG-projekt-backend\Utils\places.csv";
-            File.WriteAllText(pathCSV, csv.ToString());
+            File.WriteAllText(pathcsv, csv.ToString());
 
             return true;
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -422,7 +423,12 @@ namespace ZIG_projekt
 
         public void ExportPlacesButton_Click(object sender, RoutedEventArgs e)
         {
-            bool exported = this.PlaceService.ExportPlaces();
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Text file (*.txt)|*.txt|CSV file (*.csv)|*.cvs";
+            bool exported = false;
+            if (saveFileDialog.ShowDialog() == true)
+                exported = this.PlaceService.ExportPlaces(saveFileDialog.FileName);
+
             if (exported)
             {
                 MessageBox.Show("Successfull export!");
@@ -431,25 +437,42 @@ namespace ZIG_projekt
 
         public void ExportBirthsBookButton_Click(object sender, RoutedEventArgs e)
         {
-            bool exported = this.BirthsBookService.ExportBirthsBook(this.SelectedPlace.Name);
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Text file (*.txt)|*.txt|CSV file (*.csv)|*.csv";
+            bool exported = false;
+            if (saveFileDialog.ShowDialog() == true)
+                exported = this.BirthsBookService.ExportBirthsBook(saveFileDialog.FileName,this.SelectedPlace.Name);
+
             if (exported)
             {
                 MessageBox.Show("Successfull export!");
             }
+           
         }
 
         public void ExportWeddingsBookButton_Click(object sender, RoutedEventArgs e)
         {
-            bool exported = this.WeddingsBookService.ExportWeddingsBook(this.SelectedPlace.Name);
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Text file (*.txt)|*.txt|CSV file (*.csv)|*.csv";
+            bool exported = false;
+            if (saveFileDialog.ShowDialog() == true)
+                exported = this.WeddingsBookService.ExportWeddingsBook(saveFileDialog.FileName, this.SelectedPlace.Name);
+
             if (exported)
             {
                 MessageBox.Show("Successfull export!");
             }
+            
         }
 
         public void ExportDeathsBookButton_Click(object sender, RoutedEventArgs e)
         {
-            bool exported = this.DeathsBookService.ExportDeathsBook(this.SelectedPlace.Name);
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Text file (*.txt)|*.txt|CSV file (*.csv)|*.csv";
+            bool exported = false;
+            if (saveFileDialog.ShowDialog() == true)
+                exported = this.DeathsBookService.ExportDeathsBook(saveFileDialog.FileName, this.SelectedPlace.Name);
+
             if (exported)
             {
                 MessageBox.Show("Successfull export!");

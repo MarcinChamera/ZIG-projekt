@@ -84,7 +84,7 @@ namespace ZIG_projekt_backend.Utils
             return true;
         }
 
-        public bool ExportWeddingsBook(string placeName)
+        public bool ExportWeddingsBook(string pathcsv, string placeName)
         {
             var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + $@"\ZIG-projekt-backend\Utils\{placeName}\Wedding.txt";
             string[] lines = File.ReadAllLines(path, Encoding.UTF8);
@@ -97,9 +97,7 @@ namespace ZIG_projekt_backend.Utils
                 var newLine = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13}", words[0], words[1], words[2], words[3], words[4], words[5], words[6], words[7], words[8], words[9], words[10], words[11], words[12], words[13]);
                 csv.AppendLine(newLine);
             }
-            var pathCSV = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + $@"\ZIG-projekt-backend\Utils\{placeName}\Wedding.csv";
-            File.WriteAllText(pathCSV, csv.ToString());
-
+            File.WriteAllText(pathcsv, csv.ToString());
             return true;
         }
     }
