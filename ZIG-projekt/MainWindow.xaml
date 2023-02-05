@@ -22,7 +22,6 @@
         <Label x:Name="PlacesLabel" Content="Places" FontSize="25" HorizontalAlignment="Left" Foreground="White"/>
         <Button Margin="10 0 0 0" Background="Transparent" Foreground="white" Width="100" Click="ExportPlacesButton_Click">
           <ContentControl>
-            <!--<Image Source="images/icons8-export-excel-24.png" Width="24" Height="24"></Image>-->
             <Label Content="Export to xlsx" Foreground="White"/>
           </ContentControl>
         </Button>
@@ -54,7 +53,6 @@
         <Label x:Name="BirthsBookLabel" Content="Births Book"  FontSize="25" HorizontalAlignment="Left" Foreground="White"/>
         <Button Margin="10 0 0 0" Background="Transparent" Foreground="white" Width="100" Click="ExportBirthsBookButton_Click">
           <ContentControl>
-            <!--<Image Source="images/icons8-export-excel-24.png" Width="24" Height="24"></Image>-->
             <Label Content="Export to xlsx" Foreground="White"/>
           </ContentControl>
         </Button>
@@ -121,7 +119,6 @@
         <Label x:Name="WeddingsBookLabel" Content="Weddings Book"  FontSize="25" HorizontalAlignment="Left" Foreground="White"/>
         <Button Margin="10 0 0 0" Background="Transparent" Foreground="white" Width="100" Click="ExportWeddingsBookButton_Click">
           <ContentControl>
-            <!--<Image Source="images/icons8-export-excel-24.png" Width="24" Height="24"></Image>-->
             <Label Content="Export to xlsx" Foreground="White"/>
           </ContentControl>
         </Button>
@@ -178,7 +175,6 @@
                 </DataTemplate>
               </GridViewColumn.CellTemplate>
             </GridViewColumn>
-            <!--a-->
             <GridViewColumn Header="Groom's First Name" Width="200">
               <GridViewColumn.CellTemplate>
                 <DataTemplate>
@@ -238,7 +234,6 @@
         <Label x:Name="DeathsBookLabel" Content="Deaths Book"  FontSize="25" HorizontalAlignment="Left" Foreground="White"/>
         <Button Margin="10 0 0 0" Background="Transparent" Foreground="white" Width="100" Click="ExportDeathsBookButton_Click">
           <ContentControl>
-            <!--<Image Source="images/icons8-export-excel-24.png" Width="24" Height="24"></Image>-->
             <Label Content="Export to xlsx" Foreground="White"/>
           </ContentControl>
         </Button>

@@ -19,22 +19,12 @@ using ZIG_projekt_backend.Utils;
 
 namespace ZIG_projekt
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-        /// <summary>
-        /// The destination service
-        /// </summary>
         private PlaceService PlaceService;
-        /// <summary>
-        /// The destinations
-        /// </summary>
+
         public ICollection<Place> Places;
-        /// <summary>
-        /// The selected destination
-        /// </summary>
+
         private Place? SelectedPlace;
 
         private BirthService BirthsBookService;
@@ -67,11 +57,6 @@ namespace ZIG_projekt
             this.UpdatePlaces();
         }
 
-        /// <summary>
-        /// Handles the SelectionChanged event of the DestinationsList control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.Windows.Controls.SelectionChangedEventArgs"/> instance containing the event data.</param>
         private void PlacesList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             if (e.AddedItems.Count > 0)
@@ -89,8 +74,6 @@ namespace ZIG_projekt
                 this.AddBirthButton.Visibility= Visibility.Collapsed;
                 this.AddWeddingButton.Visibility= Visibility.Collapsed;
                 this.AddDeathButton.Visibility= Visibility.Collapsed;
-
-                //this.SelectedPlace = null;
             }
         }
 
@@ -142,11 +125,6 @@ namespace ZIG_projekt
             }
         }
 
-        /// <summary>
-        /// Handles the Click event of the AddDestinationConfirmButton control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void AddPlaceConfirmButton_Click(object sender, RoutedEventArgs e)
         {
             if (this.PlaceNameBox.Text.Length > 0)
@@ -162,9 +140,6 @@ namespace ZIG_projekt
             }
         }
 
-        /// <summary>
-        /// Updates the destinations.
-        /// </summary>
         private void UpdatePlaces()
         {
             this.Places = this.PlaceService.GetAllPlaces();
@@ -248,10 +223,7 @@ namespace ZIG_projekt
             this.AddNewDeathPanel.Visibility = Visibility.Visible;
             this.DeathsBookButtonsGrid.Visibility = Visibility.Visible;
         }
-        /////////////////////////////////////////////
-        /// <summary>
-        /// Switches to destination panel.
-        /// </summary>
+
         private void SwitchToPlacePanel()
         {
             this.BirthsBookPanel.Visibility = Visibility.Collapsed;
@@ -271,11 +243,6 @@ namespace ZIG_projekt
             this.PlacesButtonsGrid.Visibility = Visibility.Visible;
         }
 
-        /// <summary>
-        /// Handles the Click event of the RemoveDestinationButton control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void RemovePlaceButton_Click(object sender, RoutedEventArgs e)
         {
             if (this.SelectedPlace != null)
@@ -479,11 +446,6 @@ namespace ZIG_projekt
             }
         }
 
-        /// <summary>
-        /// Handles the Click event of the BackToDestinationsButton control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void BackToPlacesButton_Click(object sender, RoutedEventArgs e)
         {
             this.SwitchToPlacePanel();

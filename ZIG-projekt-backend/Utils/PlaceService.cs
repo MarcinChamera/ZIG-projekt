@@ -1,23 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
+﻿using System.Text;
 
 namespace ZIG_projekt_backend.Utils
 {
     public class PlaceService
     {
-
-        /// <summary>
-        /// Gets all destinations.
-        /// </summary>
-        /// <returns>List&lt;Destination&gt;.</returns>
-        public List<Place> GetAllPlaces()
+        public List<Place> GetAllPlaces(string textFileName="places.txt")
         {
             List <Place> listOfPlaces = new List<Place>();
-            var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + @"\ZIG-projekt-backend\Utils\places.txt";
+            var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + $@"\ZIG-projekt-backend\Utils\{textFileName}";
             string[] lines = File.ReadAllLines(path, Encoding.UTF8);
             foreach (string line in lines)
             {
@@ -35,9 +25,9 @@ namespace ZIG_projekt_backend.Utils
             return listOfPlaces;
         }
 
-        public bool AddPlace(string[] record)
+        public bool AddPlace(string[] record, string textFileName = "places.txt")
         {
-            var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + $@"\ZIG-projekt-backend\Utils\places.txt";
+            var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + $@"\ZIG-projekt-backend\Utils\{textFileName}";
 
             string[] lines = File.ReadAllLines(path, Encoding.UTF8);
             List<string> newLines = new List<string>();
@@ -61,9 +51,9 @@ namespace ZIG_projekt_backend.Utils
             return true;
         }
 
-        public bool RemovePlace(string placeName)
+        public bool RemovePlace(string placeName, string textFileName="places.txt")
         {
-            var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + $@"\ZIG-projekt-backend\Utils\places.txt";
+            var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + $@"\ZIG-projekt-backend\Utils\{textFileName}";
 
             string[] lines = File.ReadAllLines(path, Encoding.UTF8);
             List<string> newLines = new List<string>();
@@ -83,12 +73,11 @@ namespace ZIG_projekt_backend.Utils
             return true;
         }
 
-        public bool ExportPlaces(string pathcsv)
+        public bool ExportPlaces(string pathcsv, string textFileName = "places.txt")
         {
-            var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + @"\ZIG-projekt-backend\Utils\places.txt";
+            var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + $@"\ZIG-projekt-backend\Utils\{textFileName}";
             string[] lines = File.ReadAllLines(path, Encoding.UTF8);
 
-            //before your loop
             var csv = new StringBuilder();
 
             foreach (string line in lines)

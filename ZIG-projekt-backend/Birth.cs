@@ -21,7 +21,5 @@ namespace ZIG_projekt_backend
         public string FathersName { get; set; }
 
         public string Comment { get; set; }
-
-        public string PlaceId { get; set; }
     }
 }

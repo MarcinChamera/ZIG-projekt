@@ -71,12 +71,13 @@ namespace ZIG_projekt_backend.Utils
             foreach (string line in lines)
             {
                 string[] words = line.Split(',');
-                var newLine = string.Format("{0},{1},{2},{3},{4},{5}", words[0], words[1], words[2], words[3], words[4], words[5], words[6]);
+                var newLine = string.Format("{0},{1},{2},{3},{4},{5},{6}", words[0], words[1], words[2], words[3], words[4], words[5], words[6]);
                 csv.AppendLine(newLine);
             }
             File.WriteAllText(pathcsv, csv.ToString());
 
             return true;
         }
+
     }
 }

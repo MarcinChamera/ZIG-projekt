@@ -35,7 +35,5 @@ namespace ZIG_projekt_backend
         public string Date { get; set; }
 
         public string Comment { get; set; }
-
-        public string PlaceId { get; set; }
     }
 }
