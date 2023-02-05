@@ -116,10 +116,10 @@ namespace ZIG_projekt_tests
 
             // Act
             var result = _service.RemovePlace(_placeName, _textFileName);
+            string[] updatedLines = File.ReadAllLines(_filePath, Encoding.UTF8);
 
             // Assert
             Assert.IsTrue(result);
-            string[] updatedLines = File.ReadAllLines(_filePath, Encoding.UTF8);
             Assert.AreEqual(1, updatedLines.Length);
             Assert.AreEqual("Warszawa,stolica", updatedLines[0]);
         }

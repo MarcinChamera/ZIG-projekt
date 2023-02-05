@@ -118,10 +118,10 @@ namespace ZIG_projekt_tests
 
             // Act
             var result = _service.RemoveBirth(placeId, _placeName);
+            string[] updatedLines = File.ReadAllLines(_filePath, Encoding.UTF8);
 
             // Assert
             Assert.IsTrue(result);
-            string[] updatedLines = File.ReadAllLines(_filePath, Encoding.UTF8);
             Assert.AreEqual(1, updatedLines.Length);
             Assert.AreEqual("2022-01-01,12:00,John,Doe,Jane,Tom,Comment1", updatedLines[0]);
         }
