@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dariusz\\source\\repos\\ZIG-projekt\\ZIG-projekt-backend\\ZIG-projekt-backend.csproj": {}
+    "D:\\repos\\ZIG-projekt\\ZIG-projekt-backend\\ZIG-projekt-backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dariusz\\source\\repos\\ZIG-projekt\\ZIG-projekt-backend\\ZIG-projekt-backend.csproj": {
+    "D:\\repos\\ZIG-projekt\\ZIG-projekt-backend\\ZIG-projekt-backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dariusz\\source\\repos\\ZIG-projekt\\ZIG-projekt-backend\\ZIG-projekt-backend.csproj",
+        "projectUniqueName": "D:\\repos\\ZIG-projekt\\ZIG-projekt-backend\\ZIG-projekt-backend.csproj",
         "projectName": "ZIG-projekt-backend",
-        "projectPath": "C:\\Users\\Dariusz\\source\\repos\\ZIG-projekt\\ZIG-projekt-backend\\ZIG-projekt-backend.csproj",
-        "packagesPath": "C:\\Users\\Dariusz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dariusz\\source\\repos\\ZIG-projekt\\ZIG-projekt-backend\\obj\\",
+        "projectPath": "D:\\repos\\ZIG-projekt\\ZIG-projekt-backend\\ZIG-projekt-backend.csproj",
+        "packagesPath": "C:\\Users\\mcham\\.nuget\\packages\\",
+        "outputPath": "D:\\repos\\ZIG-projekt\\ZIG-projekt-backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Dariusz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mcham\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

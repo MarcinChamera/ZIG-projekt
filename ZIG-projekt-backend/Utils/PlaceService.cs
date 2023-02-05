@@ -41,7 +41,14 @@ namespace ZIG_projekt_backend.Utils
 
             string[] lines = File.ReadAllLines(path, Encoding.UTF8);
             List<string> newLines = new List<string>();
-            newLines.Add(record[0] + "," + record[1]);
+            if (string.IsNullOrWhiteSpace(record[1]))
+            {
+                newLines.Add(record[0]);
+            }
+            else
+            {
+                newLines.Add(record[0] + "," + record[1]);
+            }
             foreach (string line in lines)
             {
                    newLines.Add(line); 

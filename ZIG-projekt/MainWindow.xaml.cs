@@ -149,7 +149,7 @@ namespace ZIG_projekt
         /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void AddPlaceConfirmButton_Click(object sender, RoutedEventArgs e)
         {
-            if (this.PlaceNameBox.Text.Length > 0 && this.PlaceDescriptionBox.Text.Length > 0)
+            if (this.PlaceNameBox.Text.Length > 0)
             {
                 bool added = this.PlaceService.AddPlace(new string[] { this.PlaceNameBox.Text, this.PlaceDescriptionBox.Text });
                 if (added)
