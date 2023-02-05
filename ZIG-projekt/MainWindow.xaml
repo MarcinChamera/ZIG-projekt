@@ -37,10 +37,10 @@
                 </DataTemplate>
               </GridViewColumn.CellTemplate>
             </GridViewColumn>
-            <GridViewColumn Header="Description" Width="600">
+            <GridViewColumn Header="Note" Width="600">
               <GridViewColumn.CellTemplate>
                 <DataTemplate>
-                  <TextBlock TextWrapping="Wrap" Text="{Binding Description}"/>
+                  <TextBlock TextWrapping="Wrap" Text="{Binding Note}"/>
                 </DataTemplate>
               </GridViewColumn.CellTemplate>
             </GridViewColumn>
@@ -294,8 +294,8 @@
             <Label Content="Name" FontSize="16" Foreground="White"/>
             <TextBox Name="PlaceNameBox" Background="#FFFFFF" FontSize="16"/>
 
-            <Label Content="Description" FontSize="16" Foreground="White"/>
-            <TextBox Name="PlaceDescriptionBox" Background="#FFFFFF" FontSize="16"/>
+            <Label Content="Note" FontSize="16" Foreground="White"/>
+            <TextBox Name="PlaceNoteBox" Background="#FFFFFF" FontSize="16"/>
 
 
           </StackPanel>

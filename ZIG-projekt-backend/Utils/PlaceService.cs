@@ -24,7 +24,7 @@ namespace ZIG_projekt_backend.Utils
                 string[] words = line.Split(',');
                 if (words.Count() == 2)
                 {
-                    listOfPlaces.Add(new Place() { Name = words[0], Description = words[1] });
+                    listOfPlaces.Add(new Place() { Name = words[0], Note = words[1] });
                 }
                 else
                 {

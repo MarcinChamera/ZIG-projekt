@@ -8,11 +8,9 @@ namespace ZIG_projekt_backend
 {
     public class Place
     {
-        public string PlaceId { get; set; }
-
         public string Name { get; set; }
 
-        public string Description { get; set; }
+        public string Note { get; set; }
 
         public List<Birth> BirthBook;
 

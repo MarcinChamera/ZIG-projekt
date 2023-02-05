@@ -151,11 +151,11 @@ namespace ZIG_projekt
         {
             if (this.PlaceNameBox.Text.Length > 0)
             {
-                bool added = this.PlaceService.AddPlace(new string[] { this.PlaceNameBox.Text, this.PlaceDescriptionBox.Text });
+                bool added = this.PlaceService.AddPlace(new string[] { this.PlaceNameBox.Text, this.PlaceNoteBox.Text });
                 if (added)
                 {
                     this.PlaceNameBox.Text = "";
-                    this.PlaceDescriptionBox.Text = "";
+                    this.PlaceNoteBox.Text = "";
                     this.UpdatePlaces();
                 }
 
@@ -424,7 +424,7 @@ namespace ZIG_projekt
         public void ExportPlacesButton_Click(object sender, RoutedEventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Text file (*.txt)|*.txt|CSV file (*.csv)|*.cvs";
+            saveFileDialog.Filter = "CSV file (*.csv)|*.cvs|Text file (*.txt)|*.txt";
             bool exported = false;
             if (saveFileDialog.ShowDialog() == true)
                 exported = this.PlaceService.ExportPlaces(saveFileDialog.FileName);
@@ -438,7 +438,7 @@ namespace ZIG_projekt
         public void ExportBirthsBookButton_Click(object sender, RoutedEventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Text file (*.txt)|*.txt|CSV file (*.csv)|*.csv";
+            saveFileDialog.Filter = "CSV file (*.csv)|*.csv|Text file (*.txt)|*.txt";
             bool exported = false;
             if (saveFileDialog.ShowDialog() == true)
                 exported = this.BirthsBookService.ExportBirthsBook(saveFileDialog.FileName,this.SelectedPlace.Name);
@@ -453,7 +453,7 @@ namespace ZIG_projekt
         public void ExportWeddingsBookButton_Click(object sender, RoutedEventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Text file (*.txt)|*.txt|CSV file (*.csv)|*.csv";
+            saveFileDialog.Filter = "CSV file (*.csv)|*.csv|Text file (*.txt)|*.txt";
             bool exported = false;
             if (saveFileDialog.ShowDialog() == true)
                 exported = this.WeddingsBookService.ExportWeddingsBook(saveFileDialog.FileName, this.SelectedPlace.Name);
@@ -468,7 +468,7 @@ namespace ZIG_projekt
         public void ExportDeathsBookButton_Click(object sender, RoutedEventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Text file (*.txt)|*.txt|CSV file (*.csv)|*.csv";
+            saveFileDialog.Filter = "CSV file (*.csv)|*.csv|Text file (*.txt)|*.txt";
             bool exported = false;
             if (saveFileDialog.ShowDialog() == true)
                 exported = this.DeathsBookService.ExportDeathsBook(saveFileDialog.FileName, this.SelectedPlace.Name);
