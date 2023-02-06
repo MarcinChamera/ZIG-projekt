@@ -26,7 +26,7 @@
           </ContentControl>
         </Button>
       </StackPanel>
-      <ListView x:Name="PlacesList" ItemsSource="{Binding Places}" SelectionMode="Single" SelectionChanged="PlacesList_SelectionChanged" Height="450">
+      <ListView x:Name="PlacesList" ItemsSource="{Binding Places}" SelectionMode="Single" SelectionChanged="PlacesList_SelectionChanged" Height="450" FontSize="16">
         <ListView.View>
           <GridView AllowsColumnReorder="True">
             <GridViewColumn Header="Name" Width="200">
@@ -57,7 +57,7 @@
           </ContentControl>
         </Button>
       </StackPanel>
-      <ListView x:Name="BirthsList" ItemsSource="{Binding BirthsBook}" SelectionMode="Single" SelectionChanged="BirthsList_SelectionChanged" Height="450" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+      <ListView x:Name="BirthsList" ItemsSource="{Binding BirthsBook}" SelectionMode="Single" SelectionChanged="BirthsList_SelectionChanged" Height="450" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Visible">
         <ListView.View>
           <GridView AllowsColumnReorder="True">
             <GridViewColumn Header="First Name" Width="200">
@@ -123,7 +123,7 @@
           </ContentControl>
         </Button>
       </StackPanel>
-      <ListView x:Name="WeddingsList" ItemsSource="{Binding WeddingsBook}" SelectionMode="Single" SelectionChanged="WeddingsList_SelectionChanged" Height="450" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+      <ListView x:Name="WeddingsList" ItemsSource="{Binding WeddingsBook}" SelectionMode="Single" SelectionChanged="WeddingsList_SelectionChanged" Height="450" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Visible">
         <ListView.View>
           <GridView AllowsColumnReorder="True">
             <GridViewColumn Header="Date" Width="200">
@@ -238,7 +238,7 @@
           </ContentControl>
         </Button>
       </StackPanel>
-      <ListView x:Name="DeathsList" ItemsSource="{Binding DeathsBook}" SelectionMode="Single" SelectionChanged="DeathsList_SelectionChanged" Height="450" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+      <ListView x:Name="DeathsList" ItemsSource="{Binding DeathsBook}" SelectionMode="Single" SelectionChanged="DeathsList_SelectionChanged" Height="450" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Visible">
         <ListView.View>
           <GridView AllowsColumnReorder="True">
             <GridViewColumn Header="First Name" Width="200">
