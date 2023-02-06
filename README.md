@@ -14,18 +14,11 @@ Akcje, które aplikacja umożliwia:
 
 Aplikację stworzono przy pomocy Visual Studio 2022 (darmowa licencja dla studentów) oraz:
 - Frameworków:
-    - Microsoft.NETCore.App (6.0.1)
-    - Microsoft.WindowsDesktop.App.WPF (6.0.0)
+    - Microsoft.NETCore.App (6.0)
+    - Microsoft.WindowsDesktop.App.WPF (6.0)
 - Pakietów:
-    - Microsoft.EntityFrameworkCore (6.0.1)
-    - Microsoft.EntityFrameworkCore.InMemory (6.0.1)
-    - Microsoft.EntityFrameworkCore.Sqlite (6.0.1)
-    - Microsoft.EntityFrameworkCore.Tools (6.0.1)
-    - Microsoft.EntityFrameworkCore.Design (6.0.1)
+    - NUnit (3.13)
 
 ## Uruchomienie
-- Visual Studio:
-    - uruchomić solucję ZIG-projekt
-- Release:
-    - uruchomić plik wykonawczy `ZIG-projekt.UI.exe`//marcin dodaj tu prawdziwe info <3
+- Uruchomić plik ZIG-projekt\bin\Release\net6.0-windows\ZIG-projekt.exe
 
