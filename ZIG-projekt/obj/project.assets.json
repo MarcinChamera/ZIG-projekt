@@ -27,19 +27,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mcham\\.nuget\\packages\\": {}
+    "C:\\Users\\Dariusz\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\repos\\ZIG-projekt\\ZIG-projekt\\ZIG-projekt.csproj",
+      "projectUniqueName": "C:\\Users\\Dariusz\\source\\repos\\ZIG-projekt\\ZIG-projekt\\ZIG-projekt.csproj",
       "projectName": "ZIG-projekt",
-      "projectPath": "D:\\repos\\ZIG-projekt\\ZIG-projekt\\ZIG-projekt.csproj",
-      "packagesPath": "C:\\Users\\mcham\\.nuget\\packages\\",
-      "outputPath": "D:\\repos\\ZIG-projekt\\ZIG-projekt\\obj\\",
+      "projectPath": "C:\\Users\\Dariusz\\source\\repos\\ZIG-projekt\\ZIG-projekt\\ZIG-projekt.csproj",
+      "packagesPath": "C:\\Users\\Dariusz\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Dariusz\\source\\repos\\ZIG-projekt\\ZIG-projekt\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\mcham\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Dariusz\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -53,8 +53,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "D:\\repos\\ZIG-projekt\\ZIG-projekt-backend\\ZIG-projekt-backend.csproj": {
-              "projectPath": "D:\\repos\\ZIG-projekt\\ZIG-projekt-backend\\ZIG-projekt-backend.csproj"
+            "C:\\Users\\Dariusz\\source\\repos\\ZIG-projekt\\ZIG-projekt-backend\\ZIG-projekt-backend.csproj": {
+              "projectPath": "C:\\Users\\Dariusz\\source\\repos\\ZIG-projekt\\ZIG-projekt-backend\\ZIG-projekt-backend.csproj"
             }
           }
         }
@@ -87,7 +87,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

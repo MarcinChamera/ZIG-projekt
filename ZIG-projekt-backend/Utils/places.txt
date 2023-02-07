@@ -1,2 +1,4 @@
-wdsfsdfsdf
-Stanislaw Dolny,taka wieś
+Babice
+Lanckorona,wieś - powiat wadowicki
+Rzeszów,miasto - 200tys mieszkancow
+Kraków,miasto - 800tys mieszkancow

@@ -1,2 +1,0 @@
-test,test,test,test,test,test,test
-dupa,dupa,dupa,dupa,dupa,dupa,-
