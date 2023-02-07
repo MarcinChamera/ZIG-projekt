@@ -23,8 +23,13 @@ Aplikację stworzono przy pomocy Visual Studio 2022 (darmowa licencja dla studen
 - Uruchomić plik ZIG-projekt\bin\Release\net6.0-windows\ZIG-projekt.exe
 
 ## Screenshots
+- wszystkie miejsca / wybór księgi
 ![places](https://i.imgur.com/Cu6hqv9.png)
+- księga urodzeń
 ![births](https://i.imgur.com/z8ZkHVI.png)
+- księga zgonów 
 ![births](https://i.imgur.com/fwYr5cQ.png)
+- eksport ksiegi jako CSV 
+![births](https://i.imgur.com/76ieF64.png)
 
 
