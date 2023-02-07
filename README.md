@@ -22,3 +22,9 @@ Aplikację stworzono przy pomocy Visual Studio 2022 (darmowa licencja dla studen
 ## Uruchomienie
 - Uruchomić plik ZIG-projekt\bin\Release\net6.0-windows\ZIG-projekt.exe
 
+## Screenshots
+![places](https://i.imgur.com/Cu6hqv9.png)
+![births](https://i.imgur.com/z8ZkHVI.png)
+![births](https://i.imgur.com/fwYr5cQ.png)
+
+
